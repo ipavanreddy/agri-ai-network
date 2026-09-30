@@ -31,3 +31,11 @@ def test_maps_endpoints_demo_mode(client):
     near = client.get(f"/api/fields/{AP_FIELD}/nearby-support").json()
     assert near["mode"] == "demo" and near["places"] == []
     assert client.get("/api/fields/NOPE/nearby-support").status_code == 404
+
+
+def test_cors_allows_cloud_run_frontends(client):
+    ok = "https://agri-ai-network-farmer-web-847963771142.asia-south1.run.app"
+    res = client.get("/health", headers={"Origin": ok})
+    assert res.headers.get("access-control-allow-origin") == ok
+    res = client.get("/health", headers={"Origin": "https://evil.example.com"})
+    assert "access-control-allow-origin" not in res.headers

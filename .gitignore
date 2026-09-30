@@ -18,3 +18,5 @@ service-account*.json
 next-env.d.ts
 data/raw/
 services/api/.data/
+.env.production
+.env.*.production

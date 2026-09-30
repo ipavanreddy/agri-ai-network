@@ -32,6 +32,8 @@ class Settings(BaseSettings):
     store_path: str = str(Path(__file__).resolve().parents[1] / ".data" / "agri.sqlite")
     upload_dir: str = str(Path(__file__).resolve().parents[1] / ".data" / "uploads")
     cors_origins: str = "http://localhost:3040,http://localhost:3041"
+    # Also allow this project's Cloud Run frontends under either URL format (deterministic or hashed).
+    cors_origin_regex: str = r"https://agri-ai-network-(farmer-web|officer-dashboard)-[a-z0-9-]+\.[a-z0-9-]+\.run\.app"
 
     # ---- derived integration switches -------------------------------------------------------
     @property

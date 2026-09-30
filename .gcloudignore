@@ -1,0 +1,20 @@
+# Source uploaded by `gcloud builds submit` (infrastructure/cloud-run/deploy.sh). Mirrors .dockerignore.
+# Deliberately NOT ignored: apps/*/.env.production (generated at deploy time, public NEXT_PUBLIC_* values).
+.git
+.gitignore
+**/node_modules
+**/.next
+**/.venv
+**/__pycache__
+**/.pytest_cache
+**/.ruff_cache
+**/*.tsbuildinfo
+services/api/.data
+data/raw
+docs
+.env
+**/.env.local
+**/.env.*.local
+*.pem
+service-account*.json
+*-credentials.json

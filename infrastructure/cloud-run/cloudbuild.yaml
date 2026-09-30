@@ -1,0 +1,8 @@
+# Generic image build used by deploy.sh: build context = repo root, Dockerfile chosen per service.
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args: ["build", "-f", "${_DOCKERFILE}", "-t", "${_IMAGE}", "."]
+images: ["${_IMAGE}"]
+options:
+  logging: CLOUD_LOGGING_ONLY
+timeout: 1200s

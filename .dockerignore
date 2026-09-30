@@ -1,0 +1,19 @@
+# Build context is the repo root for every image (see infrastructure/cloud-run/deploy.sh).
+.git
+**/node_modules
+**/.next
+**/.venv
+**/__pycache__
+**/.pytest_cache
+**/.ruff_cache
+**/*.tsbuildinfo
+services/api/.data
+data/raw
+docs
+# secrets: never in an image. apps/*/.env.production (public NEXT_PUBLIC_* values only) IS included.
+.env
+**/.env.local
+**/.env.*.local
+*.pem
+service-account*.json
+*-credentials.json
