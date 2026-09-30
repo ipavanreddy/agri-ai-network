@@ -1,0 +1,16 @@
+{
+  "properties": {
+    "translations": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Translations",
+      "type": "array"
+    }
+  },
+  "required": [
+    "translations"
+  ],
+  "title": "TranslationAI",
+  "type": "object"
+}

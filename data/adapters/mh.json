@@ -1,0 +1,65 @@
+{
+  "state_id": "MH",
+  "state_name": "Maharashtra",
+  "adapter_version": "1.0.0",
+  "source_system": "MahaDBT farmer registry + Soil Health Card (sample export format)",
+  "source_file": "data/sample/states/MH/source_records.json",
+  "primary_crop": "cotton",
+  "default_language": "hi",
+  "language_map": {"mr": "hi", "hi": "hi", "en": "en"},
+  "language_note": "Marathi (mr) is not yet enabled in the MVP; it falls back to Hindi. Adding mr is a config change.",
+  "crop_codes": {"kapus": "cotton", "soyabean": "soybean", "tur": "red_gram", "jwari": "jowar", "bajri": "bajra", "harbhara": "chickpea", "mug": "green_gram", "gahu": "wheat", "maka": "maize"},
+  "irrigation_codes": {"rainfed": "rainfed", "protective": "supplemental", "drip": "drip", "well": "borewell"},
+  "practice_codes": {"conventional": "conventional", "natural": "natural_farming", "organic": "organic"},
+  "supported_crops": ["cotton", "soybean", "red_gram", "jowar", "bajra", "chickpea", "green_gram", "wheat", "maize"],
+  "districts": [
+    {"id": "MH-YTL", "name": "Yavatmal", "aliases": [], "lat": 20.39, "lon": 78.12, "climate": {"kharif_rain_mm": 850, "rabi_rain_mm": 70, "kharif_tmean_c": 28, "rabi_tmean_c": 22}},
+    {"id": "MH-AKL", "name": "Akola", "aliases": [], "lat": 20.70, "lon": 77.00, "climate": {"kharif_rain_mm": 720, "rabi_rain_mm": 60, "kharif_tmean_c": 29, "rabi_tmean_c": 23}},
+    {"id": "MH-AMR", "name": "Amravati", "aliases": [], "lat": 20.93, "lon": 77.75, "climate": {"kharif_rain_mm": 780, "rabi_rain_mm": 65, "kharif_tmean_c": 28, "rabi_tmean_c": 22}},
+    {"id": "MH-JLN", "name": "Jalna", "aliases": [], "lat": 19.84, "lon": 75.88, "climate": {"kharif_rain_mm": 600, "rabi_rain_mm": 80, "kharif_tmean_c": 28, "rabi_tmean_c": 23}},
+    {"id": "MH-NGP", "name": "Nagpur", "aliases": [], "lat": 21.15, "lon": 79.09, "climate": {"kharif_rain_mm": 950, "rabi_rain_mm": 60, "kharif_tmean_c": 29, "rabi_tmean_c": 22}}
+  ],
+  "records": {
+    "farmers": {
+      "collection": "shetkari",
+      "fields": {
+        "farmer_id": "shetkari_id",
+        "name": "naav",
+        "preferred_language": {"path": "bhasha", "transform": "language"},
+        "district": {"path": "jilha", "transform": "district"},
+        "block": "taluka",
+        "village": "gaon"
+      }
+    },
+    "fields": {
+      "collection": "pik_nondani",
+      "fields": {
+        "field_id": {"path": "nondani_id", "transform": "prefix", "prefix": "FLD-"},
+        "farmer_id": "shetkari_id",
+        "local_ref": "gat_no",
+        "geometry": "geometry",
+        "area_acres": {"path": "area_ha", "transform": "scale", "factor": 2.4710538},
+        "irrigation": {"path": "sinchan", "transform": "code", "table": "irrigation_codes"},
+        "farming_practice": {"path": "paddhat", "transform": "code", "table": "practice_codes"},
+        "crop.crop_name": {"path": "pik", "transform": "code", "table": "crop_codes"},
+        "crop.variety": "vaan",
+        "crop.season": {"path": "hangam", "transform": "season"},
+        "crop.sowing_date": {"path": "perni_date", "transform": "date", "format": "%Y-%m-%d"}
+      }
+    },
+    "soil": {
+      "collection": "mati_arogya",
+      "fields": {
+        "sample_id": "card_id",
+        "district": {"path": "jilha", "transform": "district"},
+        "block": "taluka",
+        "ph": "ph_value",
+        "organic_carbon_pct": "organic_carbon_pct",
+        "nitrogen_kg_ha": "available_n_kg_ha",
+        "phosphorus_kg_ha": "available_p_kg_ha",
+        "potassium_kg_ha": "available_k_kg_ha",
+        "measurement_date": {"path": "sampled_on", "transform": "date", "format": "%Y-%m-%d"}
+      }
+    }
+  }
+}

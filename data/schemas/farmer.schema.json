@@ -1,0 +1,77 @@
+{
+  "properties": {
+    "farmer_id": {
+      "title": "Farmer Id",
+      "type": "string"
+    },
+    "name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "preferred_language": {
+      "default": "en",
+      "enum": [
+        "en",
+        "hi",
+        "te"
+      ],
+      "title": "Preferred Language",
+      "type": "string"
+    },
+    "state": {
+      "title": "State",
+      "type": "string"
+    },
+    "district": {
+      "title": "District",
+      "type": "string"
+    },
+    "block": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Block"
+    },
+    "village": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Village"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "source_system": {
+      "default": "platform",
+      "title": "Source System",
+      "type": "string"
+    },
+    "is_sample": {
+      "default": false,
+      "title": "Is Sample",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "farmer_id",
+    "name",
+    "state",
+    "district"
+  ],
+  "title": "Farmer",
+  "type": "object"
+}

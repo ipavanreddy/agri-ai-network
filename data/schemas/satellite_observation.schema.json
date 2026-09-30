@@ -1,0 +1,237 @@
+{
+  "$defs": {
+    "NdviPoint": {
+      "properties": {
+        "date": {
+          "format": "date",
+          "title": "Date",
+          "type": "string"
+        },
+        "ndvi": {
+          "title": "Ndvi",
+          "type": "number"
+        },
+        "ndmi": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ndmi"
+        },
+        "valid_fraction": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Valid Fraction"
+        }
+      },
+      "required": [
+        "date",
+        "ndvi"
+      ],
+      "title": "NdviPoint",
+      "type": "object"
+    },
+    "Provenance": {
+      "description": "Source + freshness metadata carried by every data block (PRD \u00a736, \u00a742).",
+      "properties": {
+        "source": {
+          "title": "Source",
+          "type": "string"
+        },
+        "source_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Url"
+        },
+        "reference_timestamp": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "When the data was observed/measured/forecast-issued",
+          "title": "Reference Timestamp"
+        },
+        "retrieved_at": {
+          "format": "date-time",
+          "title": "Retrieved At",
+          "type": "string"
+        },
+        "dataset_version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Dataset Version"
+        },
+        "geographic_scope": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Geographic Scope"
+        },
+        "is_sample": {
+          "default": false,
+          "title": "Is Sample",
+          "type": "boolean"
+        },
+        "is_synthetic": {
+          "default": false,
+          "title": "Is Synthetic",
+          "type": "boolean"
+        },
+        "mode": {
+          "default": "live",
+          "enum": [
+            "live",
+            "demo"
+          ],
+          "title": "Mode",
+          "type": "string"
+        },
+        "note": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Note"
+        }
+      },
+      "required": [
+        "source"
+      ],
+      "title": "Provenance",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "series": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/NdviPoint"
+      },
+      "title": "Series",
+      "type": "array"
+    },
+    "latest_ndvi": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Latest Ndvi"
+    },
+    "latest_ndmi": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Latest Ndmi"
+    },
+    "ndvi_change_30d": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Ndvi Change 30D"
+    },
+    "vegetation_health": {
+      "default": "unknown",
+      "enum": [
+        "good",
+        "moderate",
+        "poor",
+        "unknown"
+      ],
+      "title": "Vegetation Health",
+      "type": "string"
+    },
+    "observation_date": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Observation Date"
+    },
+    "thumbnail_url": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Thumbnail Url"
+    },
+    "provenance": {
+      "$ref": "#/$defs/Provenance"
+    }
+  },
+  "required": [
+    "provenance"
+  ],
+  "title": "SatelliteObservation",
+  "type": "object"
+}

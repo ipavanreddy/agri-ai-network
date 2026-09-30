@@ -1,0 +1,68 @@
+{
+  "properties": {
+    "crop_name": {
+      "description": "Canonical crop id, e.g. groundnut, cotton, wheat",
+      "title": "Crop Name",
+      "type": "string"
+    },
+    "variety": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Variety"
+    },
+    "season": {
+      "anyOf": [
+        {
+          "enum": [
+            "kharif",
+            "rabi",
+            "zaid"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Season"
+    },
+    "sowing_date": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Sowing Date"
+    },
+    "growth_stage": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Growth Stage"
+    }
+  },
+  "required": [
+    "crop_name"
+  ],
+  "title": "Crop",
+  "type": "object"
+}

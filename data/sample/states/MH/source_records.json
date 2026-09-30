@@ -1,0 +1,139 @@
+{
+  "_meta": {
+    "source": "Maharashtra MahaDBT farmer registry + Soil Health Card export (sample format)",
+    "reference_timestamp": "2026-09-28T06:00:00+05:30",
+    "dataset_version": "sample-2026.09.30-v1",
+    "geographic_scope": "Maharashtra",
+    "is_sample": true,
+    "is_synthetic": true,
+    "generated_by": "data/scripts/generate_sample_data.py",
+    "seed": 20260930,
+    "note": "Synthetic records in an MH-style local format (ISO dates, hectares, Marathi crop names)."
+  },
+  "shetkari": [
+    {
+      "shetkari_id": "MH-YTL-2231",
+      "naav": "Suresh Patil",
+      "bhasha": "mr",
+      "jilha": "Yavatmal",
+      "taluka": "Ner",
+      "gaon": "Malkhed"
+    },
+    {
+      "shetkari_id": "MH-AKL-0419",
+      "naav": "Anita Wankhede",
+      "bhasha": "hi",
+      "jilha": "Akola",
+      "taluka": "Barshitakli",
+      "gaon": "Pinjar"
+    }
+  ],
+  "pik_nondani": [
+    {
+      "nondani_id": "PN-2026-0091",
+      "shetkari_id": "MH-YTL-2231",
+      "gat_no": "217",
+      "area_ha": 1.2141,
+      "pik": "kapus",
+      "vaan": "Bt hybrid (sample)",
+      "hangam": "kharif",
+      "perni_date": "2026-06-25",
+      "sinchan": "rainfed",
+      "paddhat": "conventional",
+      "lat": 20.335,
+      "lon": 77.99,
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.989422,
+              20.334548
+            ],
+            [
+              77.990578,
+              20.334548
+            ],
+            [
+              77.990578,
+              20.335452
+            ],
+            [
+              77.989422,
+              20.335452
+            ],
+            [
+              77.989422,
+              20.334548
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "nondani_id": "PN-2026-0144",
+      "shetkari_id": "MH-AKL-0419",
+      "gat_no": "88",
+      "area_ha": 2.0234,
+      "pik": "soyabean",
+      "vaan": "JS-335",
+      "hangam": "kharif",
+      "perni_date": "2026-06-30",
+      "sinchan": "protective",
+      "paddhat": "conventional",
+      "lat": 20.6512,
+      "lon": 77.0102,
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.009452,
+              20.650617
+            ],
+            [
+              77.010948,
+              20.650617
+            ],
+            [
+              77.010948,
+              20.651783
+            ],
+            [
+              77.009452,
+              20.651783
+            ],
+            [
+              77.009452,
+              20.650617
+            ]
+          ]
+        ]
+      }
+    }
+  ],
+  "mati_arogya": [
+    {
+      "card_id": "MH-SHC-YTL-7781",
+      "jilha": "Yavatmal",
+      "taluka": "Ner",
+      "ph_value": 7.9,
+      "organic_carbon_pct": 0.52,
+      "available_n_kg_ha": 214,
+      "available_p_kg_ha": 11.8,
+      "available_k_kg_ha": 356,
+      "sampled_on": "2025-01-22"
+    },
+    {
+      "card_id": "MH-SHC-AKL-1203",
+      "jilha": "Akola",
+      "taluka": "Barshitakli",
+      "ph_value": 8.1,
+      "organic_carbon_pct": 0.61,
+      "available_n_kg_ha": 232,
+      "available_p_kg_ha": 16.4,
+      "available_k_kg_ha": 410,
+      "sampled_on": "2024-12-11"
+    }
+  ]
+}

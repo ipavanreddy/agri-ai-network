@@ -1,0 +1,141 @@
+{
+  "_meta": {
+    "source": "Punjab Anaaj/land records + PAU soil test export (sample format)",
+    "reference_timestamp": "2026-02-18T06:00:00+05:30",
+    "dataset_version": "sample-2026.09.30-v1",
+    "geographic_scope": "Punjab",
+    "is_sample": true,
+    "is_synthetic": true,
+    "generated_by": "data/scripts/generate_sample_data.py",
+    "seed": 20260930,
+    "note": "Synthetic records in a PB-style local format (dd-Mon-yyyy dates, kanal area, OC in g/kg, nutrients in kg/acre). Scenario date is last rabi season."
+  },
+  "kisan": [
+    {
+      "kisan_code": "PB-LDH-5510",
+      "full_name": "Gurpreet Singh",
+      "language_pref": "pa",
+      "zila": "Ludhiana",
+      "block": "Mullanpur Dakha",
+      "pind": "Mullanpur"
+    },
+    {
+      "kisan_code": "PB-SGR-2077",
+      "full_name": "Harjit Kaur",
+      "language_pref": "hi",
+      "zila": "Sangrur",
+      "block": "Dhuri",
+      "pind": "Kanjhla"
+    }
+  ],
+  "khet": [
+    {
+      "khasra": "34//12",
+      "kisan_code": "PB-LDH-5510",
+      "area_kanal": 32,
+      "fasal": "kanak",
+      "variety": "PBW 826",
+      "season": "rabi 2025-26",
+      "bijai": "10-Nov-2025",
+      "irrigation": "tubewell",
+      "practice": "happy_seeder_no_burn",
+      "centroid": {
+        "lat": 30.842,
+        "lng": 75.761
+      },
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              75.760271,
+              30.841478
+            ],
+            [
+              75.761729,
+              30.841478
+            ],
+            [
+              75.761729,
+              30.842522
+            ],
+            [
+              75.760271,
+              30.842522
+            ],
+            [
+              75.760271,
+              30.841478
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "khasra": "71//4",
+      "kisan_code": "PB-SGR-2077",
+      "area_kanal": 20,
+      "fasal": "sarson",
+      "variety": "PBR 357",
+      "season": "rabi 2025-26",
+      "bijai": "22-Oct-2025",
+      "irrigation": "canal",
+      "practice": "conventional",
+      "centroid": {
+        "lat": 30.3781,
+        "lng": 75.872
+      },
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              75.871426,
+              30.377688
+            ],
+            [
+              75.872574,
+              30.377688
+            ],
+            [
+              75.872574,
+              30.378512
+            ],
+            [
+              75.871426,
+              30.378512
+            ],
+            [
+              75.871426,
+              30.377688
+            ]
+          ]
+        ]
+      }
+    }
+  ],
+  "soil_tests": [
+    {
+      "lab_ref": "PAU-LDH-25-1180",
+      "zila": "Ludhiana",
+      "block": "Mullanpur Dakha",
+      "ph": 7.8,
+      "oc_g_per_kg": 4.1,
+      "n_kg_per_acre": 101,
+      "p_kg_per_acre": 9.2,
+      "k_kg_per_acre": 58,
+      "tested_on": "05-Oct-2025"
+    },
+    {
+      "lab_ref": "PAU-SGR-25-0660",
+      "zila": "Sangrur",
+      "block": "Dhuri",
+      "ph": 8.2,
+      "oc_g_per_kg": 3.6,
+      "n_kg_per_acre": 96,
+      "p_kg_per_acre": 11.4,
+      "k_kg_per_acre": 61,
+      "tested_on": "28-Sep-2025"
+    }
+  ]
+}

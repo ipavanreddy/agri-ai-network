@@ -1,0 +1,70 @@
+{
+  "_meta": {
+    "source": "Sentinel-2 SR NDVI/NDMI field-mean series (synthetic, Earth Engine output shape)",
+    "reference_timestamp": "2026-02-17T05:30:00Z",
+    "dataset_version": "sample-2026.09.30-v1",
+    "geographic_scope": "PB demo field polygon",
+    "is_sample": true,
+    "is_synthetic": true,
+    "generated_by": "data/scripts/generate_sample_data.py",
+    "seed": 20260930,
+    "note": "Shaped like app/intelligence/satellite.py output from COPERNICUS/S2_SR_HARMONIZED."
+  },
+  "collection": "COPERNICUS/S2_SR_HARMONIZED",
+  "series": [
+    {
+      "date": "2025-11-25",
+      "ndvi": 0.243,
+      "ndmi": -0.038,
+      "valid_fraction": 0.88
+    },
+    {
+      "date": "2025-12-10",
+      "ndvi": 0.358,
+      "ndmi": 0.051,
+      "valid_fraction": 0.86
+    },
+    {
+      "date": "2025-12-25",
+      "ndvi": 0.488,
+      "ndmi": 0.123,
+      "valid_fraction": 0.91
+    },
+    {
+      "date": "2026-01-09",
+      "ndvi": 0.583,
+      "ndmi": 0.17,
+      "valid_fraction": 0.99
+    },
+    {
+      "date": "2026-01-21",
+      "ndvi": 0.638,
+      "ndmi": 0.209,
+      "valid_fraction": 0.86
+    },
+    {
+      "date": "2026-01-31",
+      "ndvi": 0.677,
+      "ndmi": 0.24,
+      "valid_fraction": 0.98
+    },
+    {
+      "date": "2026-02-08",
+      "ndvi": 0.709,
+      "ndmi": 0.264,
+      "valid_fraction": 0.93
+    },
+    {
+      "date": "2026-02-13",
+      "ndvi": 0.723,
+      "ndmi": 0.259,
+      "valid_fraction": 0.99
+    },
+    {
+      "date": "2026-02-17",
+      "ndvi": 0.725,
+      "ndmi": 0.272,
+      "valid_fraction": 0.97
+    }
+  ]
+}

@@ -1,0 +1,743 @@
+{
+  "_meta": {
+    "source": "Curated indicative crop requirement ranges (demo knowledge base)",
+    "reference_timestamp": "2026-09-30T00:00:00+05:30",
+    "dataset_version": "sample-2026.09.30-v1",
+    "geographic_scope": "India (generic)",
+    "is_sample": true,
+    "is_synthetic": false,
+    "generated_by": "data/scripts/generate_sample_data.py",
+    "seed": 20260930,
+    "note": "Indicative ranges compiled for the demo from general agronomy knowledge; not validated extension advice. Expected NDVI by stage is a heuristic for the Farm Health score."
+  },
+  "crops": [
+    {
+      "crop_id": "groundnut",
+      "names": {
+        "en": "Groundnut",
+        "hi": "मूंगफली",
+        "te": "వేరుశనగ"
+      },
+      "family": "legume",
+      "seasons": [
+        "kharif",
+        "rabi"
+      ],
+      "ph": [
+        6.0,
+        7.5
+      ],
+      "temp_c": [
+        24,
+        33
+      ],
+      "water_mm": 500,
+      "duration_days": 115,
+      "drought_tolerance": "medium",
+      "n_fixing": true,
+      "heat_stress_c": 38,
+      "stages": [
+        {
+          "stage": "emergence",
+          "from_day": 0,
+          "to_day": 20,
+          "expected_ndvi": 0.25
+        },
+        {
+          "stage": "vegetative",
+          "from_day": 20,
+          "to_day": 45,
+          "expected_ndvi": 0.45
+        },
+        {
+          "stage": "flowering_pegging",
+          "from_day": 45,
+          "to_day": 70,
+          "expected_ndvi": 0.62
+        },
+        {
+          "stage": "pod_development",
+          "from_day": 70,
+          "to_day": 95,
+          "expected_ndvi": 0.66
+        },
+        {
+          "stage": "maturity",
+          "from_day": 95,
+          "to_day": 125,
+          "expected_ndvi": 0.5
+        }
+      ]
+    },
+    {
+      "crop_id": "cotton",
+      "names": {
+        "en": "Cotton",
+        "hi": "कपास",
+        "te": "పత్తి"
+      },
+      "family": "fibre",
+      "seasons": [
+        "kharif"
+      ],
+      "ph": [
+        6.0,
+        8.2
+      ],
+      "temp_c": [
+        21,
+        35
+      ],
+      "water_mm": 800,
+      "duration_days": 170,
+      "drought_tolerance": "medium",
+      "n_fixing": false,
+      "heat_stress_c": 40,
+      "stages": [
+        {
+          "stage": "emergence",
+          "from_day": 0,
+          "to_day": 20,
+          "expected_ndvi": 0.25
+        },
+        {
+          "stage": "vegetative",
+          "from_day": 20,
+          "to_day": 60,
+          "expected_ndvi": 0.5
+        },
+        {
+          "stage": "squaring_flowering",
+          "from_day": 60,
+          "to_day": 100,
+          "expected_ndvi": 0.68
+        },
+        {
+          "stage": "boll_development",
+          "from_day": 100,
+          "to_day": 145,
+          "expected_ndvi": 0.72
+        },
+        {
+          "stage": "maturity",
+          "from_day": 145,
+          "to_day": 185,
+          "expected_ndvi": 0.5
+        }
+      ]
+    },
+    {
+      "crop_id": "wheat",
+      "names": {
+        "en": "Wheat",
+        "hi": "गेहूं",
+        "te": "గోధుమ"
+      },
+      "family": "cereal",
+      "seasons": [
+        "rabi"
+      ],
+      "ph": [
+        6.0,
+        8.0
+      ],
+      "temp_c": [
+        12,
+        25
+      ],
+      "water_mm": 450,
+      "duration_days": 145,
+      "drought_tolerance": "low",
+      "n_fixing": false,
+      "heat_stress_c": 32,
+      "stages": [
+        {
+          "stage": "emergence",
+          "from_day": 0,
+          "to_day": 20,
+          "expected_ndvi": 0.3
+        },
+        {
+          "stage": "tillering",
+          "from_day": 20,
+          "to_day": 50,
+          "expected_ndvi": 0.55
+        },
+        {
+          "stage": "jointing_booting",
+          "from_day": 50,
+          "to_day": 85,
+          "expected_ndvi": 0.72
+        },
+        {
+          "stage": "heading_grain_fill",
+          "from_day": 85,
+          "to_day": 120,
+          "expected_ndvi": 0.7
+        },
+        {
+          "stage": "maturity",
+          "from_day": 120,
+          "to_day": 150,
+          "expected_ndvi": 0.4
+        }
+      ]
+    },
+    {
+      "crop_id": "red_gram",
+      "names": {
+        "en": "Red gram (pigeon pea)",
+        "hi": "अरहर",
+        "te": "కంది"
+      },
+      "family": "legume",
+      "seasons": [
+        "kharif"
+      ],
+      "ph": [
+        6.0,
+        8.0
+      ],
+      "temp_c": [
+        20,
+        35
+      ],
+      "water_mm": 450,
+      "duration_days": 160,
+      "drought_tolerance": "high",
+      "n_fixing": true,
+      "heat_stress_c": 40,
+      "stages": [
+        {
+          "stage": "emergence",
+          "from_day": 0,
+          "to_day": 25,
+          "expected_ndvi": 0.22
+        },
+        {
+          "stage": "vegetative",
+          "from_day": 25,
+          "to_day": 70,
+          "expected_ndvi": 0.45
+        },
+        {
+          "stage": "flowering",
+          "from_day": 70,
+          "to_day": 110,
+          "expected_ndvi": 0.6
+        },
+        {
+          "stage": "pod_development",
+          "from_day": 110,
+          "to_day": 145,
+          "expected_ndvi": 0.58
+        },
+        {
+          "stage": "maturity",
+          "from_day": 145,
+          "to_day": 175,
+          "expected_ndvi": 0.4
+        }
+      ]
+    },
+    {
+      "crop_id": "bajra",
+      "names": {
+        "en": "Pearl millet (bajra)",
+        "hi": "बाजरा",
+        "te": "సజ్జ"
+      },
+      "family": "millet",
+      "seasons": [
+        "kharif"
+      ],
+      "ph": [
+        6.0,
+        8.3
+      ],
+      "temp_c": [
+        25,
+        35
+      ],
+      "water_mm": 320,
+      "duration_days": 85,
+      "drought_tolerance": "high",
+      "n_fixing": false,
+      "heat_stress_c": 42,
+      "stages": [
+        {
+          "stage": "emergence",
+          "from_day": 0,
+          "to_day": 15,
+          "expected_ndvi": 0.25
+        },
+        {
+          "stage": "vegetative",
+          "from_day": 15,
+          "to_day": 40,
+          "expected_ndvi": 0.5
+        },
+        {
+          "stage": "flowering",
+          "from_day": 40,
+          "to_day": 60,
+          "expected_ndvi": 0.62
+        },
+        {
+          "stage": "grain_fill",
+          "from_day": 60,
+          "to_day": 80,
+          "expected_ndvi": 0.55
+        },
+        {
+          "stage": "maturity",
+          "from_day": 80,
+          "to_day": 95,
+          "expected_ndvi": 0.4
+        }
+      ]
+    },
+    {
+      "crop_id": "jowar",
+      "names": {
+        "en": "Sorghum (jowar)",
+        "hi": "ज्वार",
+        "te": "జొన్న"
+      },
+      "family": "millet",
+      "seasons": [
+        "kharif",
+        "rabi"
+      ],
+      "ph": [
+        6.0,
+        8.3
+      ],
+      "temp_c": [
+        22,
+        34
+      ],
+      "water_mm": 420,
+      "duration_days": 110,
+      "drought_tolerance": "high",
+      "n_fixing": false,
+      "heat_stress_c": 40,
+      "stages": [
+        {
+          "stage": "emergence",
+          "from_day": 0,
+          "to_day": 15,
+          "expected_ndvi": 0.25
+        },
+        {
+          "stage": "vegetative",
+          "from_day": 15,
+          "to_day": 50,
+          "expected_ndvi": 0.52
+        },
+        {
+          "stage": "flowering",
+          "from_day": 50,
+          "to_day": 75,
+          "expected_ndvi": 0.64
+        },
+        {
+          "stage": "grain_fill",
+          "from_day": 75,
+          "to_day": 100,
+          "expected_ndvi": 0.56
+        },
+        {
+          "stage": "maturity",
+          "from_day": 100,
+          "to_day": 120,
+          "expected_ndvi": 0.4
+        }
+      ]
+    },
+    {
+      "crop_id": "foxtail_millet",
+      "names": {
+        "en": "Foxtail millet",
+        "hi": "कंगनी",
+        "te": "కొర్ర"
+      },
+      "family": "millet",
+      "seasons": [
+        "kharif"
+      ],
+      "ph": [
+        5.5,
+        8.0
+      ],
+      "temp_c": [
+        24,
+        34
+      ],
+      "water_mm": 280,
+      "duration_days": 80,
+      "drought_tolerance": "high",
+      "n_fixing": false,
+      "heat_stress_c": 40,
+      "stages": [
+        {
+          "stage": "emergence",
+          "from_day": 0,
+          "to_day": 15,
+          "expected_ndvi": 0.22
+        },
+        {
+          "stage": "vegetative",
+          "from_day": 15,
+          "to_day": 40,
+          "expected_ndvi": 0.45
+        },
+        {
+          "stage": "flowering",
+          "from_day": 40,
+          "to_day": 60,
+          "expected_ndvi": 0.55
+        },
+        {
+          "stage": "maturity",
+          "from_day": 60,
+          "to_day": 90,
+          "expected_ndvi": 0.4
+        }
+      ]
+    },
+    {
+      "crop_id": "chickpea",
+      "names": {
+        "en": "Chickpea (Bengal gram)",
+        "hi": "चना",
+        "te": "శనగ"
+      },
+      "family": "legume",
+      "seasons": [
+        "rabi"
+      ],
+      "ph": [
+        6.0,
+        8.3
+      ],
+      "temp_c": [
+        14,
+        28
+      ],
+      "water_mm": 300,
+      "duration_days": 110,
+      "drought_tolerance": "high",
+      "n_fixing": true,
+      "heat_stress_c": 33,
+      "stages": [
+        {
+          "stage": "emergence",
+          "from_day": 0,
+          "to_day": 20,
+          "expected_ndvi": 0.25
+        },
+        {
+          "stage": "vegetative",
+          "from_day": 20,
+          "to_day": 50,
+          "expected_ndvi": 0.5
+        },
+        {
+          "stage": "flowering_podding",
+          "from_day": 50,
+          "to_day": 90,
+          "expected_ndvi": 0.62
+        },
+        {
+          "stage": "maturity",
+          "from_day": 90,
+          "to_day": 120,
+          "expected_ndvi": 0.4
+        }
+      ]
+    },
+    {
+      "crop_id": "mustard",
+      "names": {
+        "en": "Mustard",
+        "hi": "सरसों",
+        "te": "ఆవాలు"
+      },
+      "family": "oilseed",
+      "seasons": [
+        "rabi"
+      ],
+      "ph": [
+        6.0,
+        8.3
+      ],
+      "temp_c": [
+        12,
+        25
+      ],
+      "water_mm": 280,
+      "duration_days": 125,
+      "drought_tolerance": "medium",
+      "n_fixing": false,
+      "heat_stress_c": 30,
+      "stages": [
+        {
+          "stage": "emergence",
+          "from_day": 0,
+          "to_day": 20,
+          "expected_ndvi": 0.28
+        },
+        {
+          "stage": "vegetative",
+          "from_day": 20,
+          "to_day": 50,
+          "expected_ndvi": 0.55
+        },
+        {
+          "stage": "flowering",
+          "from_day": 50,
+          "to_day": 85,
+          "expected_ndvi": 0.68
+        },
+        {
+          "stage": "pod_fill",
+          "from_day": 85,
+          "to_day": 110,
+          "expected_ndvi": 0.55
+        },
+        {
+          "stage": "maturity",
+          "from_day": 110,
+          "to_day": 130,
+          "expected_ndvi": 0.4
+        }
+      ]
+    },
+    {
+      "crop_id": "maize",
+      "names": {
+        "en": "Maize",
+        "hi": "मक्का",
+        "te": "మొక్కజొన్న"
+      },
+      "family": "cereal",
+      "seasons": [
+        "kharif",
+        "rabi"
+      ],
+      "ph": [
+        5.5,
+        7.8
+      ],
+      "temp_c": [
+        21,
+        32
+      ],
+      "water_mm": 550,
+      "duration_days": 110,
+      "drought_tolerance": "low",
+      "n_fixing": false,
+      "heat_stress_c": 38,
+      "stages": [
+        {
+          "stage": "emergence",
+          "from_day": 0,
+          "to_day": 15,
+          "expected_ndvi": 0.28
+        },
+        {
+          "stage": "vegetative",
+          "from_day": 15,
+          "to_day": 50,
+          "expected_ndvi": 0.6
+        },
+        {
+          "stage": "tasseling_silking",
+          "from_day": 50,
+          "to_day": 70,
+          "expected_ndvi": 0.78
+        },
+        {
+          "stage": "grain_fill",
+          "from_day": 70,
+          "to_day": 100,
+          "expected_ndvi": 0.7
+        },
+        {
+          "stage": "maturity",
+          "from_day": 100,
+          "to_day": 120,
+          "expected_ndvi": 0.45
+        }
+      ]
+    },
+    {
+      "crop_id": "paddy",
+      "names": {
+        "en": "Paddy (rice)",
+        "hi": "धान",
+        "te": "వరి"
+      },
+      "family": "cereal",
+      "seasons": [
+        "kharif",
+        "rabi"
+      ],
+      "ph": [
+        5.5,
+        7.5
+      ],
+      "temp_c": [
+        22,
+        34
+      ],
+      "water_mm": 1200,
+      "duration_days": 125,
+      "drought_tolerance": "low",
+      "n_fixing": false,
+      "heat_stress_c": 38,
+      "stages": [
+        {
+          "stage": "establishment",
+          "from_day": 0,
+          "to_day": 25,
+          "expected_ndvi": 0.3
+        },
+        {
+          "stage": "tillering",
+          "from_day": 25,
+          "to_day": 55,
+          "expected_ndvi": 0.6
+        },
+        {
+          "stage": "panicle_initiation",
+          "from_day": 55,
+          "to_day": 85,
+          "expected_ndvi": 0.78
+        },
+        {
+          "stage": "grain_fill",
+          "from_day": 85,
+          "to_day": 110,
+          "expected_ndvi": 0.7
+        },
+        {
+          "stage": "maturity",
+          "from_day": 110,
+          "to_day": 130,
+          "expected_ndvi": 0.45
+        }
+      ]
+    },
+    {
+      "crop_id": "soybean",
+      "names": {
+        "en": "Soybean",
+        "hi": "सोयाबीन",
+        "te": "సోయాచిక్కుడు"
+      },
+      "family": "legume",
+      "seasons": [
+        "kharif"
+      ],
+      "ph": [
+        6.0,
+        7.8
+      ],
+      "temp_c": [
+        20,
+        32
+      ],
+      "water_mm": 500,
+      "duration_days": 100,
+      "drought_tolerance": "low",
+      "n_fixing": true,
+      "heat_stress_c": 36,
+      "stages": [
+        {
+          "stage": "emergence",
+          "from_day": 0,
+          "to_day": 15,
+          "expected_ndvi": 0.28
+        },
+        {
+          "stage": "vegetative",
+          "from_day": 15,
+          "to_day": 40,
+          "expected_ndvi": 0.6
+        },
+        {
+          "stage": "flowering",
+          "from_day": 40,
+          "to_day": 60,
+          "expected_ndvi": 0.76
+        },
+        {
+          "stage": "pod_fill",
+          "from_day": 60,
+          "to_day": 85,
+          "expected_ndvi": 0.72
+        },
+        {
+          "stage": "maturity",
+          "from_day": 85,
+          "to_day": 105,
+          "expected_ndvi": 0.45
+        }
+      ]
+    },
+    {
+      "crop_id": "green_gram",
+      "names": {
+        "en": "Green gram (moong)",
+        "hi": "मूंग",
+        "te": "పెసర"
+      },
+      "family": "legume",
+      "seasons": [
+        "kharif",
+        "zaid"
+      ],
+      "ph": [
+        6.2,
+        7.8
+      ],
+      "temp_c": [
+        25,
+        35
+      ],
+      "water_mm": 280,
+      "duration_days": 65,
+      "drought_tolerance": "medium",
+      "n_fixing": true,
+      "heat_stress_c": 40,
+      "stages": [
+        {
+          "stage": "emergence",
+          "from_day": 0,
+          "to_day": 12,
+          "expected_ndvi": 0.25
+        },
+        {
+          "stage": "vegetative",
+          "from_day": 12,
+          "to_day": 30,
+          "expected_ndvi": 0.5
+        },
+        {
+          "stage": "flowering_podding",
+          "from_day": 30,
+          "to_day": 55,
+          "expected_ndvi": 0.6
+        },
+        {
+          "stage": "maturity",
+          "from_day": 55,
+          "to_day": 70,
+          "expected_ndvi": 0.4
+        }
+      ]
+    }
+  ]
+}

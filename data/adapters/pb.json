@@ -1,0 +1,65 @@
+{
+  "state_id": "PB",
+  "state_name": "Punjab",
+  "adapter_version": "1.0.0",
+  "source_system": "Punjab land records + PAU soil testing lab (sample export format)",
+  "source_file": "data/sample/states/PB/source_records.json",
+  "primary_crop": "wheat",
+  "default_language": "hi",
+  "language_map": {"pa": "hi", "hi": "hi", "en": "en"},
+  "language_note": "Punjabi (pa) is not yet enabled in the MVP; it falls back to Hindi. Adding pa is a config change.",
+  "crop_codes": {"kanak": "wheat", "sarson": "mustard", "chhole": "chickpea", "jhona": "paddy", "makki": "maize", "narma": "cotton", "moongi": "green_gram"},
+  "irrigation_codes": {"tubewell": "borewell", "canal": "canal", "rainfed": "rainfed", "drip": "drip"},
+  "practice_codes": {"conventional": "conventional", "happy_seeder_no_burn": "residue_retention", "organic": "organic"},
+  "supported_crops": ["wheat", "mustard", "chickpea", "paddy", "maize", "cotton", "green_gram"],
+  "districts": [
+    {"id": "PB-LDH", "name": "Ludhiana", "aliases": [], "lat": 30.90, "lon": 75.85, "climate": {"kharif_rain_mm": 560, "rabi_rain_mm": 110, "kharif_tmean_c": 30, "rabi_tmean_c": 16}},
+    {"id": "PB-SGR", "name": "Sangrur", "aliases": [], "lat": 30.25, "lon": 75.84, "climate": {"kharif_rain_mm": 480, "rabi_rain_mm": 90, "kharif_tmean_c": 30, "rabi_tmean_c": 16}},
+    {"id": "PB-BTH", "name": "Bathinda", "aliases": ["Bhatinda"], "lat": 30.21, "lon": 74.95, "climate": {"kharif_rain_mm": 360, "rabi_rain_mm": 70, "kharif_tmean_c": 31, "rabi_tmean_c": 17}},
+    {"id": "PB-PTL", "name": "Patiala", "aliases": [], "lat": 30.34, "lon": 76.39, "climate": {"kharif_rain_mm": 620, "rabi_rain_mm": 110, "kharif_tmean_c": 30, "rabi_tmean_c": 16}},
+    {"id": "PB-MGA", "name": "Moga", "aliases": [], "lat": 30.82, "lon": 75.17, "climate": {"kharif_rain_mm": 450, "rabi_rain_mm": 90, "kharif_tmean_c": 30, "rabi_tmean_c": 16}}
+  ],
+  "records": {
+    "farmers": {
+      "collection": "kisan",
+      "fields": {
+        "farmer_id": "kisan_code",
+        "name": "full_name",
+        "preferred_language": {"path": "language_pref", "transform": "language"},
+        "district": {"path": "zila", "transform": "district"},
+        "block": "block",
+        "village": "pind"
+      }
+    },
+    "fields": {
+      "collection": "khet",
+      "fields": {
+        "field_id": {"path": "khasra", "transform": "prefix", "prefix": "FLD-PB-"},
+        "farmer_id": "kisan_code",
+        "local_ref": "khasra",
+        "geometry": "polygon",
+        "area_acres": {"path": "area_kanal", "transform": "scale", "factor": 0.125},
+        "irrigation": {"path": "irrigation", "transform": "code", "table": "irrigation_codes"},
+        "farming_practice": {"path": "practice", "transform": "code", "table": "practice_codes"},
+        "crop.crop_name": {"path": "fasal", "transform": "code", "table": "crop_codes"},
+        "crop.variety": "variety",
+        "crop.season": {"path": "season", "transform": "season"},
+        "crop.sowing_date": {"path": "bijai", "transform": "date", "format": "%d-%b-%Y"}
+      }
+    },
+    "soil": {
+      "collection": "soil_tests",
+      "fields": {
+        "sample_id": "lab_ref",
+        "district": {"path": "zila", "transform": "district"},
+        "block": "block",
+        "ph": "ph",
+        "organic_carbon_pct": {"path": "oc_g_per_kg", "transform": "scale", "factor": 0.1},
+        "nitrogen_kg_ha": {"path": "n_kg_per_acre", "transform": "scale", "factor": 2.4710538},
+        "phosphorus_kg_ha": {"path": "p_kg_per_acre", "transform": "scale", "factor": 2.4710538},
+        "potassium_kg_ha": {"path": "k_kg_per_acre", "transform": "scale", "factor": 2.4710538},
+        "measurement_date": {"path": "tested_on", "transform": "date", "format": "%d-%b-%Y"}
+      }
+    }
+  }
+}

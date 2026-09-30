@@ -1,0 +1,65 @@
+{
+  "state_id": "AP",
+  "state_name": "Andhra Pradesh",
+  "adapter_version": "1.0.0",
+  "source_system": "AP e-Crop booking + Soil Health Card (sample export format)",
+  "source_file": "data/sample/states/AP/source_records.json",
+  "primary_crop": "groundnut",
+  "default_language": "te",
+  "language_map": {"te": "te", "en": "en", "hi": "hi"},
+  "crop_codes": {"GN": "groundnut", "RG": "red_gram", "CT": "cotton", "PD": "paddy", "MZ": "maize", "BJ": "bajra", "JW": "jowar", "FM": "foxtail_millet", "BG": "chickpea"},
+  "irrigation_codes": {"RF": "rainfed", "BW": "borewell", "CN": "canal", "TK": "tank", "DR": "drip"},
+  "practice_codes": {"CONV": "conventional", "NF": "natural_farming", "ORG": "organic"},
+  "supported_crops": ["groundnut", "red_gram", "bajra", "jowar", "foxtail_millet", "cotton", "paddy", "maize", "chickpea", "green_gram"],
+  "districts": [
+    {"id": "AP-ATP", "name": "Anantapur", "aliases": ["Anantapuramu"], "lat": 14.68, "lon": 77.60, "climate": {"kharif_rain_mm": 340, "rabi_rain_mm": 130, "kharif_tmean_c": 28, "rabi_tmean_c": 25}},
+    {"id": "AP-KNL", "name": "Kurnool", "aliases": [], "lat": 15.83, "lon": 78.04, "climate": {"kharif_rain_mm": 450, "rabi_rain_mm": 120, "kharif_tmean_c": 29, "rabi_tmean_c": 25}},
+    {"id": "AP-CTR", "name": "Chittoor", "aliases": [], "lat": 13.22, "lon": 79.10, "climate": {"kharif_rain_mm": 420, "rabi_rain_mm": 380, "kharif_tmean_c": 28, "rabi_tmean_c": 24}},
+    {"id": "AP-GNT", "name": "Guntur", "aliases": [], "lat": 16.31, "lon": 80.44, "climate": {"kharif_rain_mm": 560, "rabi_rain_mm": 250, "kharif_tmean_c": 30, "rabi_tmean_c": 26}},
+    {"id": "AP-PKM", "name": "Prakasam", "aliases": ["Ongole"], "lat": 15.35, "lon": 79.56, "climate": {"kharif_rain_mm": 380, "rabi_rain_mm": 330, "kharif_tmean_c": 30, "rabi_tmean_c": 26}}
+  ],
+  "records": {
+    "farmers": {
+      "collection": "ryots",
+      "fields": {
+        "farmer_id": "ryot_id",
+        "name": "ryot_name",
+        "preferred_language": {"path": "lang", "transform": "language"},
+        "district": {"path": "district_name", "transform": "district"},
+        "block": "mandal",
+        "village": "village"
+      }
+    },
+    "fields": {
+      "collection": "crop_bookings",
+      "fields": {
+        "field_id": {"path": "booking_id", "transform": "prefix", "prefix": "FLD-"},
+        "farmer_id": "ryot_id",
+        "local_ref": "survey_no",
+        "geometry": "boundary",
+        "area_acres": {"path": "extent_ac", "transform": "scale", "factor": 1.0},
+        "irrigation": {"path": "water_source", "transform": "code", "table": "irrigation_codes"},
+        "farming_practice": {"path": "practice", "transform": "code", "table": "practice_codes"},
+        "crop.crop_name": {"path": "crop_code", "transform": "code", "table": "crop_codes"},
+        "crop.variety": "variety",
+        "crop.season": {"path": "season", "transform": "season"},
+        "crop.sowing_date": {"path": "sowing_dt", "transform": "date", "format": "%d/%m/%Y"}
+      }
+    },
+    "soil": {
+      "collection": "soil_health_cards",
+      "fields": {
+        "sample_id": "shc_no",
+        "district": {"path": "district_name", "transform": "district"},
+        "block": "mandal",
+        "ph": "pH",
+        "organic_carbon_pct": "OC",
+        "nitrogen_kg_ha": "N",
+        "phosphorus_kg_ha": "P",
+        "potassium_kg_ha": "K",
+        "electrical_conductivity_ds_m": "EC",
+        "measurement_date": {"path": "sample_dt", "transform": "date", "format": "%d/%m/%Y"}
+      }
+    }
+  }
+}

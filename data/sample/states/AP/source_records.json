@@ -1,0 +1,147 @@
+{
+  "_meta": {
+    "source": "AP e-Crop booking + Soil Health Card export (sample format)",
+    "reference_timestamp": "2026-09-28T06:00:00+05:30",
+    "dataset_version": "sample-2026.09.30-v1",
+    "geographic_scope": "Andhra Pradesh",
+    "is_sample": true,
+    "is_synthetic": true,
+    "generated_by": "data/scripts/generate_sample_data.py",
+    "seed": 20260930,
+    "note": "Synthetic records in an AP-style local format (dd/mm/yyyy dates, crop codes, acres)."
+  },
+  "ryots": [
+    {
+      "ryot_id": "AP-ATP-000123",
+      "ryot_name": "Lakshmi Devi",
+      "lang": "te",
+      "district_name": "Anantapuramu",
+      "mandal": "Rapthadu",
+      "village": "Gandlaparthi",
+      "mobile_masked": "98xxxxxx21"
+    },
+    {
+      "ryot_id": "AP-KNL-000877",
+      "ryot_name": "Venkata Reddy",
+      "lang": "te",
+      "district_name": "Kurnool",
+      "mandal": "Dhone",
+      "village": "Kothakota",
+      "mobile_masked": "94xxxxxx07"
+    }
+  ],
+  "crop_bookings": [
+    {
+      "booking_id": "ECB-2026-K-55112",
+      "ryot_id": "AP-ATP-000123",
+      "survey_no": "112/2",
+      "extent_ac": 2.4,
+      "crop_code": "GN",
+      "variety": "Kadiri-6 (K-6)",
+      "season": "Kharif-2026",
+      "sowing_dt": "12/07/2026",
+      "water_source": "RF",
+      "practice": "CONV",
+      "centroid": [
+        14.5602,
+        77.4417
+      ],
+      "boundary": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.441199,
+              14.559796
+            ],
+            [
+              77.442201,
+              14.559796
+            ],
+            [
+              77.442201,
+              14.560604
+            ],
+            [
+              77.441199,
+              14.560604
+            ],
+            [
+              77.441199,
+              14.559796
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "booking_id": "ECB-2026-K-60301",
+      "ryot_id": "AP-KNL-000877",
+      "survey_no": "45/1A",
+      "extent_ac": 3.1,
+      "crop_code": "RG",
+      "variety": "LRG-52",
+      "season": "Kharif-2026",
+      "sowing_dt": "02/07/2026",
+      "water_source": "BW",
+      "practice": "NF",
+      "centroid": [
+        15.4312,
+        77.874
+      ],
+      "boundary": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              77.873428,
+              15.430741
+            ],
+            [
+              77.874572,
+              15.430741
+            ],
+            [
+              77.874572,
+              15.431659
+            ],
+            [
+              77.873428,
+              15.431659
+            ],
+            [
+              77.873428,
+              15.430741
+            ]
+          ]
+        ]
+      }
+    }
+  ],
+  "soil_health_cards": [
+    {
+      "shc_no": "AP/ATP/RPT/2025/00412",
+      "district_name": "Anantapuramu",
+      "mandal": "Rapthadu",
+      "pH": 6.4,
+      "EC": 0.21,
+      "OC": 0.38,
+      "N": 176,
+      "P": 14.2,
+      "K": 212,
+      "sample_dt": "18/03/2025"
+    },
+    {
+      "shc_no": "AP/KNL/DHN/2025/00128",
+      "district_name": "Kurnool",
+      "mandal": "Dhone",
+      "pH": 7.6,
+      "EC": 0.35,
+      "OC": 0.47,
+      "N": 205,
+      "P": 18.6,
+      "K": 298,
+      "sample_dt": "02/02/2025"
+    }
+  ]
+}

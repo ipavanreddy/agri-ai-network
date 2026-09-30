@@ -1,0 +1,85 @@
+{
+  "$defs": {
+    "CropOptionAI": {
+      "properties": {
+        "crop_id": {
+          "title": "Crop Id",
+          "type": "string"
+        },
+        "suitability": {
+          "enum": [
+            "High",
+            "Moderate",
+            "Low"
+          ],
+          "title": "Suitability",
+          "type": "string"
+        },
+        "reasons": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Reasons",
+          "type": "array"
+        },
+        "risks": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Risks",
+          "type": "array"
+        },
+        "regenerative_role": {
+          "title": "Regenerative Role",
+          "type": "string"
+        }
+      },
+      "required": [
+        "crop_id",
+        "suitability",
+        "reasons",
+        "risks",
+        "regenerative_role"
+      ],
+      "title": "CropOptionAI",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "summary": {
+      "title": "Summary",
+      "type": "string"
+    },
+    "options": {
+      "items": {
+        "$ref": "#/$defs/CropOptionAI"
+      },
+      "title": "Options",
+      "type": "array"
+    },
+    "rotation_plan": {
+      "title": "Rotation Plan",
+      "type": "string"
+    },
+    "missing_information": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Missing Information",
+      "type": "array"
+    },
+    "confidence": {
+      "title": "Confidence",
+      "type": "number"
+    }
+  },
+  "required": [
+    "summary",
+    "options",
+    "rotation_plan",
+    "missing_information",
+    "confidence"
+  ],
+  "title": "CropRecommendationAI",
+  "type": "object"
+}

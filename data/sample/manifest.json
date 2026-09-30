@@ -1,0 +1,150 @@
+{
+  "dataset_version": "sample-2026.09.30-v1",
+  "generated_by": "data/scripts/generate_sample_data.py",
+  "datasets": [
+    {
+      "path": "sample/crops/crop_catalog.json",
+      "source": "Curated indicative crop requirement ranges (demo knowledge base)",
+      "reference_timestamp": "2026-09-30T00:00:00+05:30",
+      "dataset_version": "sample-2026.09.30-v1",
+      "geographic_scope": "India (generic)",
+      "is_sample": true,
+      "is_synthetic": false
+    },
+    {
+      "path": "sample/diagnosis/fixtures.json",
+      "source": "Hand-written demo Crop Doctor outputs (NOT an analysis of the uploaded image)",
+      "reference_timestamp": "2026-09-30T00:00:00+05:30",
+      "dataset_version": "sample-2026.09.30-v1",
+      "geographic_scope": "demo",
+      "is_sample": true,
+      "is_synthetic": true
+    },
+    {
+      "path": "sample/images/leaf_spot_synthetic.meta.json",
+      "source": "Procedurally drawn synthetic leaf with brown spots (no real photo)",
+      "reference_timestamp": "2026-09-30T00:00:00+05:30",
+      "dataset_version": "sample-2026.09.30-v1",
+      "geographic_scope": "n/a",
+      "is_sample": true,
+      "is_synthetic": true
+    },
+    {
+      "path": "sample/regional/district_indicators.json",
+      "source": "Synthetic district/block aggregates for the officer dashboard",
+      "reference_timestamp": "2026-09-28T00:00:00+05:30",
+      "dataset_version": "sample-2026.09.30-v1",
+      "geographic_scope": "AP, MH, PB (15 districts)",
+      "is_sample": true,
+      "is_synthetic": true
+    },
+    {
+      "path": "sample/satellite/AP.json",
+      "source": "Sentinel-2 SR NDVI/NDMI field-mean series (synthetic, Earth Engine output shape)",
+      "reference_timestamp": "2026-09-27T05:30:00Z",
+      "dataset_version": "sample-2026.09.30-v1",
+      "geographic_scope": "AP demo field polygon",
+      "is_sample": true,
+      "is_synthetic": true
+    },
+    {
+      "path": "sample/satellite/MH.json",
+      "source": "Sentinel-2 SR NDVI/NDMI field-mean series (synthetic, Earth Engine output shape)",
+      "reference_timestamp": "2026-09-27T05:30:00Z",
+      "dataset_version": "sample-2026.09.30-v1",
+      "geographic_scope": "MH demo field polygon",
+      "is_sample": true,
+      "is_synthetic": true
+    },
+    {
+      "path": "sample/satellite/PB.json",
+      "source": "Sentinel-2 SR NDVI/NDMI field-mean series (synthetic, Earth Engine output shape)",
+      "reference_timestamp": "2026-02-17T05:30:00Z",
+      "dataset_version": "sample-2026.09.30-v1",
+      "geographic_scope": "PB demo field polygon",
+      "is_sample": true,
+      "is_synthetic": true
+    },
+    {
+      "path": "sample/soilgrids/AP.json",
+      "source": "SoilGrids 2.0-shaped synthetic texture extract (0-15 cm)",
+      "reference_timestamp": "2020-01-01T00:00:00Z",
+      "dataset_version": "sample-2026.09.30-v1",
+      "geographic_scope": "AP demo field point",
+      "is_sample": true,
+      "is_synthetic": true
+    },
+    {
+      "path": "sample/soilgrids/MH.json",
+      "source": "SoilGrids 2.0-shaped synthetic texture extract (0-15 cm)",
+      "reference_timestamp": "2020-01-01T00:00:00Z",
+      "dataset_version": "sample-2026.09.30-v1",
+      "geographic_scope": "MH demo field point",
+      "is_sample": true,
+      "is_synthetic": true
+    },
+    {
+      "path": "sample/soilgrids/PB.json",
+      "source": "SoilGrids 2.0-shaped synthetic texture extract (0-15 cm)",
+      "reference_timestamp": "2020-01-01T00:00:00Z",
+      "dataset_version": "sample-2026.09.30-v1",
+      "geographic_scope": "PB demo field point",
+      "is_sample": true,
+      "is_synthetic": true
+    },
+    {
+      "path": "sample/states/AP/source_records.json",
+      "source": "AP e-Crop booking + Soil Health Card export (sample format)",
+      "reference_timestamp": "2026-09-28T06:00:00+05:30",
+      "dataset_version": "sample-2026.09.30-v1",
+      "geographic_scope": "Andhra Pradesh",
+      "is_sample": true,
+      "is_synthetic": true
+    },
+    {
+      "path": "sample/states/MH/source_records.json",
+      "source": "Maharashtra MahaDBT farmer registry + Soil Health Card export (sample format)",
+      "reference_timestamp": "2026-09-28T06:00:00+05:30",
+      "dataset_version": "sample-2026.09.30-v1",
+      "geographic_scope": "Maharashtra",
+      "is_sample": true,
+      "is_synthetic": true
+    },
+    {
+      "path": "sample/states/PB/source_records.json",
+      "source": "Punjab Anaaj/land records + PAU soil test export (sample format)",
+      "reference_timestamp": "2026-02-18T06:00:00+05:30",
+      "dataset_version": "sample-2026.09.30-v1",
+      "geographic_scope": "Punjab",
+      "is_sample": true,
+      "is_synthetic": true
+    },
+    {
+      "path": "sample/weather/AP.json",
+      "source": "Open-Meteo-shaped synthetic weather extract",
+      "reference_timestamp": "2026-09-28T09:00:00+05:30",
+      "dataset_version": "sample-2026.09.30-v1",
+      "geographic_scope": "AP demo field point",
+      "is_sample": true,
+      "is_synthetic": true
+    },
+    {
+      "path": "sample/weather/MH.json",
+      "source": "Open-Meteo-shaped synthetic weather extract",
+      "reference_timestamp": "2026-09-28T09:00:00+05:30",
+      "dataset_version": "sample-2026.09.30-v1",
+      "geographic_scope": "MH demo field point",
+      "is_sample": true,
+      "is_synthetic": true
+    },
+    {
+      "path": "sample/weather/PB.json",
+      "source": "Open-Meteo-shaped synthetic weather extract",
+      "reference_timestamp": "2026-02-18T09:00:00+05:30",
+      "dataset_version": "sample-2026.09.30-v1",
+      "geographic_scope": "PB demo field point",
+      "is_sample": true,
+      "is_synthetic": true
+    }
+  ]
+}

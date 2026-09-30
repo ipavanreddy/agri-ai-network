@@ -1,0 +1,210 @@
+{
+  "$defs": {
+    "AdvisoryInterpretation": {
+      "properties": {
+        "statement": {
+          "title": "Statement",
+          "type": "string"
+        },
+        "based_on": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Based On",
+          "type": "array"
+        },
+        "uncertainty": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ],
+          "title": "Uncertainty",
+          "type": "string"
+        }
+      },
+      "required": [
+        "statement",
+        "based_on",
+        "uncertainty"
+      ],
+      "title": "AdvisoryInterpretation",
+      "type": "object"
+    },
+    "AdvisoryObservation": {
+      "properties": {
+        "category": {
+          "enum": [
+            "weather",
+            "soil",
+            "satellite",
+            "farm",
+            "crop_health"
+          ],
+          "title": "Category",
+          "type": "string"
+        },
+        "fact": {
+          "title": "Fact",
+          "type": "string"
+        },
+        "source": {
+          "title": "Source",
+          "type": "string"
+        }
+      },
+      "required": [
+        "category",
+        "fact",
+        "source"
+      ],
+      "title": "AdvisoryObservation",
+      "type": "object"
+    },
+    "AdvisoryRecommendation": {
+      "properties": {
+        "action": {
+          "title": "Action",
+          "type": "string"
+        },
+        "priority": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ],
+          "title": "Priority",
+          "type": "string"
+        },
+        "reason": {
+          "title": "Reason",
+          "type": "string"
+        },
+        "timeframe": {
+          "title": "Timeframe",
+          "type": "string"
+        }
+      },
+      "required": [
+        "action",
+        "priority",
+        "reason",
+        "timeframe"
+      ],
+      "title": "AdvisoryRecommendation",
+      "type": "object"
+    },
+    "RegenerativePractice": {
+      "properties": {
+        "action": {
+          "title": "Action",
+          "type": "string"
+        },
+        "reason": {
+          "title": "Reason",
+          "type": "string"
+        },
+        "evidence": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence",
+          "type": "array"
+        }
+      },
+      "required": [
+        "action",
+        "reason",
+        "evidence"
+      ],
+      "title": "RegenerativePractice",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "summary": {
+      "title": "Summary",
+      "type": "string"
+    },
+    "risk_level": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "title": "Risk Level",
+      "type": "string"
+    },
+    "time_sensitivity": {
+      "enum": [
+        "today",
+        "next_48_hours",
+        "this_week",
+        "this_season"
+      ],
+      "title": "Time Sensitivity",
+      "type": "string"
+    },
+    "observations": {
+      "items": {
+        "$ref": "#/$defs/AdvisoryObservation"
+      },
+      "title": "Observations",
+      "type": "array"
+    },
+    "interpretations": {
+      "items": {
+        "$ref": "#/$defs/AdvisoryInterpretation"
+      },
+      "title": "Interpretations",
+      "type": "array"
+    },
+    "recommendations": {
+      "items": {
+        "$ref": "#/$defs/AdvisoryRecommendation"
+      },
+      "title": "Recommendations",
+      "type": "array"
+    },
+    "regenerative_practice": {
+      "$ref": "#/$defs/RegenerativePractice"
+    },
+    "missing_information": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Missing Information",
+      "type": "array"
+    },
+    "data_freshness_notes": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Data Freshness Notes",
+      "type": "array"
+    },
+    "confidence": {
+      "title": "Confidence",
+      "type": "number"
+    },
+    "requires_human_review": {
+      "title": "Requires Human Review",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "summary",
+    "risk_level",
+    "time_sensitivity",
+    "observations",
+    "interpretations",
+    "recommendations",
+    "regenerative_practice",
+    "missing_information",
+    "data_freshness_notes",
+    "confidence",
+    "requires_human_review"
+  ],
+  "title": "AdvisoryAI",
+  "type": "object"
+}

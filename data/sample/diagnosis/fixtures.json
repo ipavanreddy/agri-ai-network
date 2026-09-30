@@ -1,0 +1,128 @@
+{
+  "_meta": {
+    "source": "Hand-written demo Crop Doctor outputs (NOT an analysis of the uploaded image)",
+    "reference_timestamp": "2026-09-30T00:00:00+05:30",
+    "dataset_version": "sample-2026.09.30-v1",
+    "geographic_scope": "demo",
+    "is_sample": true,
+    "is_synthetic": true,
+    "generated_by": "data/scripts/generate_sample_data.py",
+    "seed": 20260930,
+    "note": "Used only when GEMINI_API_KEY is empty."
+  },
+  "by_crop": {
+    "groundnut": {
+      "plant_part": "leaf",
+      "severity": "moderate",
+      "confidence": 0.62,
+      "potential_conditions": [
+        {
+          "name": "Early leaf spot (Cercospora arachidicola) - potential",
+          "likelihood": 0.62,
+          "visible_evidence": [
+            "Circular brown lesions on upper leaf surface",
+            "Yellow halo around some lesions"
+          ]
+        },
+        {
+          "name": "Late leaf spot (Nothopassalora personata) - possible",
+          "likelihood": 0.24,
+          "visible_evidence": [
+            "Dark lesions without clear halo"
+          ]
+        }
+      ],
+      "visible_symptoms": [
+        "Brown circular lesions",
+        "Yellowing around lesions",
+        "Localized leaf damage"
+      ],
+      "recommended_next_actions": [
+        "Inspect 10-15 plants across the field to see how widespread the spots are",
+        "Remove heavily spotted lower leaves where practical",
+        "Confirm with the local agriculture officer / KVK before any spray decision"
+      ]
+    },
+    "cotton": {
+      "plant_part": "leaf",
+      "severity": "low",
+      "confidence": 0.55,
+      "potential_conditions": [
+        {
+          "name": "Alternaria leaf spot - potential",
+          "likelihood": 0.55,
+          "visible_evidence": [
+            "Small brown concentric spots on older leaves"
+          ]
+        },
+        {
+          "name": "Bacterial blight - possible",
+          "likelihood": 0.2,
+          "visible_evidence": [
+            "Angular water-soaked patches"
+          ]
+        }
+      ],
+      "visible_symptoms": [
+        "Brown spots on older leaves",
+        "Some yellowing"
+      ],
+      "recommended_next_actions": [
+        "Check lower canopy and bolls for spread after the recent heavy rain",
+        "Improve drainage where water is standing",
+        "Ask the agriculture officer to verify before treatment"
+      ]
+    },
+    "wheat": {
+      "plant_part": "leaf",
+      "severity": "moderate",
+      "confidence": 0.6,
+      "potential_conditions": [
+        {
+          "name": "Yellow (stripe) rust - potential",
+          "likelihood": 0.6,
+          "visible_evidence": [
+            "Yellow pustules arranged in stripes along veins"
+          ]
+        },
+        {
+          "name": "Nutrient deficiency (N) - possible",
+          "likelihood": 0.18,
+          "visible_evidence": [
+            "General pale yellowing"
+          ]
+        }
+      ],
+      "visible_symptoms": [
+        "Yellow striped pustules",
+        "Leaf yellowing"
+      ],
+      "recommended_next_actions": [
+        "Walk the field in a W pattern and check for rust patches",
+        "Report patches to the agriculture officer quickly - rust spreads fast in cool humid weather",
+        "Follow PAU-recommended management only after confirmation"
+      ]
+    },
+    "_default": {
+      "plant_part": "leaf",
+      "severity": "unknown",
+      "confidence": 0.4,
+      "potential_conditions": [
+        {
+          "name": "Leaf spot / stress - uncertain",
+          "likelihood": 0.4,
+          "visible_evidence": [
+            "Discoloured patches on leaf"
+          ]
+        }
+      ],
+      "visible_symptoms": [
+        "Discoloured patches"
+      ],
+      "recommended_next_actions": [
+        "Take a clearer close-up photo in daylight",
+        "Consult the local agriculture officer"
+      ]
+    }
+  }
+}

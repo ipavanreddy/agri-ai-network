@@ -1,0 +1,695 @@
+{
+  "_meta": {
+    "source": "Synthetic district/block aggregates for the officer dashboard",
+    "reference_timestamp": "2026-09-28T00:00:00+05:30",
+    "dataset_version": "sample-2026.09.30-v1",
+    "geographic_scope": "AP, MH, PB (15 districts)",
+    "is_sample": true,
+    "is_synthetic": true,
+    "generated_by": "data/scripts/generate_sample_data.py",
+    "seed": 20260930,
+    "note": "Realistic-looking but synthetic. PB reference date is rabi 2025-26."
+  },
+  "states": {
+    "AP": [
+      {
+        "district_id": "AP-ATP",
+        "district": "Anantapur",
+        "lat": 14.68,
+        "lon": 77.6,
+        "farmers_represented": 2046,
+        "fields_represented": 2937,
+        "crop_distribution_pct": {
+          "groundnut": 58,
+          "red_gram": 14,
+          "bajra": 9,
+          "cotton": 8,
+          "other": 11
+        },
+        "avg_farm_health": 56,
+        "water_stress_index": 0.7,
+        "weather_risk": "high",
+        "weather_risk_reason": "Dry spell >14 days with rain only in forecast",
+        "disease_alerts": 18,
+        "top_issues": [
+          "Early/late leaf spot (tikka) - groundnut",
+          "Dry spell moisture stress",
+          "Red hairy caterpillar"
+        ],
+        "advisories_issued_7d": 208,
+        "reference_date": "2026-09-28",
+        "blocks": [
+          {
+            "block": "Rapthadu",
+            "avg_farm_health": 53,
+            "water_stress_index": 0.67,
+            "disease_alerts": 4
+          },
+          {
+            "block": "Kalyandurg",
+            "avg_farm_health": 54,
+            "water_stress_index": 0.72,
+            "disease_alerts": 9
+          },
+          {
+            "block": "Dharmavaram",
+            "avg_farm_health": 52,
+            "water_stress_index": 0.66,
+            "disease_alerts": 5
+          }
+        ]
+      },
+      {
+        "district_id": "AP-KNL",
+        "district": "Kurnool",
+        "lat": 15.83,
+        "lon": 78.04,
+        "farmers_represented": 2601,
+        "fields_represented": 3708,
+        "crop_distribution_pct": {
+          "cotton": 31,
+          "groundnut": 22,
+          "red_gram": 18,
+          "jowar": 12,
+          "other": 17
+        },
+        "avg_farm_health": 61,
+        "water_stress_index": 0.49,
+        "weather_risk": "medium",
+        "weather_risk_reason": "Patchy rainfall, high daytime temperature",
+        "disease_alerts": 6,
+        "top_issues": [
+          "Early/late leaf spot (tikka) - groundnut",
+          "Dry spell moisture stress"
+        ],
+        "advisories_issued_7d": 867,
+        "reference_date": "2026-09-28",
+        "blocks": [
+          {
+            "block": "Dhone",
+            "avg_farm_health": 67,
+            "water_stress_index": 0.46,
+            "disease_alerts": 1
+          },
+          {
+            "block": "Adoni",
+            "avg_farm_health": 66,
+            "water_stress_index": 0.52,
+            "disease_alerts": 1
+          },
+          {
+            "block": "Pattikonda",
+            "avg_farm_health": 70,
+            "water_stress_index": 0.45,
+            "disease_alerts": 4
+          }
+        ]
+      },
+      {
+        "district_id": "AP-CTR",
+        "district": "Chittoor",
+        "lat": 13.22,
+        "lon": 79.1,
+        "farmers_represented": 2234,
+        "fields_represented": 2956,
+        "crop_distribution_pct": {
+          "groundnut": 34,
+          "paddy": 28,
+          "maize": 12,
+          "other": 26
+        },
+        "avg_farm_health": 66,
+        "water_stress_index": 0.49,
+        "weather_risk": "medium",
+        "weather_risk_reason": "Patchy rainfall, high daytime temperature",
+        "disease_alerts": 1,
+        "top_issues": [
+          "Early/late leaf spot (tikka) - groundnut",
+          "Dry spell moisture stress"
+        ],
+        "advisories_issued_7d": 195,
+        "reference_date": "2026-09-28",
+        "blocks": [
+          {
+            "block": "Madanapalle",
+            "avg_farm_health": 62,
+            "water_stress_index": 0.46,
+            "disease_alerts": 1
+          },
+          {
+            "block": "Palamaner",
+            "avg_farm_health": 60,
+            "water_stress_index": 0.47,
+            "disease_alerts": 0
+          },
+          {
+            "block": "Punganur",
+            "avg_farm_health": 65,
+            "water_stress_index": 0.53,
+            "disease_alerts": 0
+          }
+        ]
+      },
+      {
+        "district_id": "AP-GNT",
+        "district": "Guntur",
+        "lat": 16.31,
+        "lon": 80.44,
+        "farmers_represented": 2150,
+        "fields_represented": 2664,
+        "crop_distribution_pct": {
+          "cotton": 38,
+          "paddy": 30,
+          "maize": 10,
+          "other": 22
+        },
+        "avg_farm_health": 71,
+        "water_stress_index": 0.27,
+        "weather_risk": "low",
+        "weather_risk_reason": "Near-normal conditions",
+        "disease_alerts": 4,
+        "top_issues": [
+          "Early/late leaf spot (tikka) - groundnut",
+          "Dry spell moisture stress"
+        ],
+        "advisories_issued_7d": 763,
+        "reference_date": "2026-09-28",
+        "blocks": [
+          {
+            "block": "Tenali",
+            "avg_farm_health": 71,
+            "water_stress_index": 0.35,
+            "disease_alerts": 0
+          },
+          {
+            "block": "Narasaraopet",
+            "avg_farm_health": 80,
+            "water_stress_index": 0.16,
+            "disease_alerts": 4
+          },
+          {
+            "block": "Sattenapalle",
+            "avg_farm_health": 81,
+            "water_stress_index": 0.15,
+            "disease_alerts": 0
+          }
+        ]
+      },
+      {
+        "district_id": "AP-PKM",
+        "district": "Prakasam",
+        "lat": 15.35,
+        "lon": 79.56,
+        "farmers_represented": 3849,
+        "fields_represented": 5701,
+        "crop_distribution_pct": {
+          "red_gram": 24,
+          "cotton": 22,
+          "bajra": 16,
+          "other": 38
+        },
+        "avg_farm_health": 62,
+        "water_stress_index": 0.45,
+        "weather_risk": "medium",
+        "weather_risk_reason": "Patchy rainfall, high daytime temperature",
+        "disease_alerts": 7,
+        "top_issues": [
+          "Early/late leaf spot (tikka) - groundnut",
+          "Dry spell moisture stress"
+        ],
+        "advisories_issued_7d": 379,
+        "reference_date": "2026-09-28",
+        "blocks": [
+          {
+            "block": "Kanigiri",
+            "avg_farm_health": 67,
+            "water_stress_index": 0.49,
+            "disease_alerts": 4
+          },
+          {
+            "block": "Markapur",
+            "avg_farm_health": 59,
+            "water_stress_index": 0.36,
+            "disease_alerts": 0
+          },
+          {
+            "block": "Darsi",
+            "avg_farm_health": 57,
+            "water_stress_index": 0.49,
+            "disease_alerts": 3
+          }
+        ]
+      }
+    ],
+    "MH": [
+      {
+        "district_id": "MH-YTL",
+        "district": "Yavatmal",
+        "lat": 20.39,
+        "lon": 78.12,
+        "farmers_represented": 3899,
+        "fields_represented": 5276,
+        "crop_distribution_pct": {
+          "cotton": 54,
+          "soybean": 28,
+          "red_gram": 10,
+          "other": 8
+        },
+        "avg_farm_health": 56,
+        "water_stress_index": 0.71,
+        "weather_risk": "high",
+        "weather_risk_reason": "Heavy rain + humidity >85% (disease-favourable)",
+        "disease_alerts": 15,
+        "top_issues": [
+          "Pink bollworm - cotton",
+          "Boll rot after heavy rain",
+          "Yellow mosaic - soybean"
+        ],
+        "advisories_issued_7d": 794,
+        "reference_date": "2026-09-28",
+        "blocks": [
+          {
+            "block": "Ner",
+            "avg_farm_health": 56,
+            "water_stress_index": 0.74,
+            "disease_alerts": 1
+          },
+          {
+            "block": "Darwha",
+            "avg_farm_health": 56,
+            "water_stress_index": 0.57,
+            "disease_alerts": 5
+          },
+          {
+            "block": "Pusad",
+            "avg_farm_health": 59,
+            "water_stress_index": 0.63,
+            "disease_alerts": 9
+          }
+        ]
+      },
+      {
+        "district_id": "MH-AKL",
+        "district": "Akola",
+        "lat": 20.7,
+        "lon": 77.0,
+        "farmers_represented": 4653,
+        "fields_represented": 6999,
+        "crop_distribution_pct": {
+          "soybean": 42,
+          "cotton": 36,
+          "green_gram": 8,
+          "other": 14
+        },
+        "avg_farm_health": 60,
+        "water_stress_index": 0.66,
+        "weather_risk": "high",
+        "weather_risk_reason": "Heavy rain + humidity >85% (disease-favourable)",
+        "disease_alerts": 12,
+        "top_issues": [
+          "Pink bollworm - cotton",
+          "Boll rot after heavy rain",
+          "Yellow mosaic - soybean"
+        ],
+        "advisories_issued_7d": 190,
+        "reference_date": "2026-09-28",
+        "blocks": [
+          {
+            "block": "Barshitakli",
+            "avg_farm_health": 51,
+            "water_stress_index": 0.69,
+            "disease_alerts": 1
+          },
+          {
+            "block": "Akot",
+            "avg_farm_health": 64,
+            "water_stress_index": 0.74,
+            "disease_alerts": 2
+          },
+          {
+            "block": "Telhara",
+            "avg_farm_health": 57,
+            "water_stress_index": 0.57,
+            "disease_alerts": 9
+          }
+        ]
+      },
+      {
+        "district_id": "MH-AMR",
+        "district": "Amravati",
+        "lat": 20.93,
+        "lon": 77.75,
+        "farmers_represented": 4349,
+        "fields_represented": 6212,
+        "crop_distribution_pct": {
+          "soybean": 38,
+          "cotton": 34,
+          "red_gram": 14,
+          "other": 14
+        },
+        "avg_farm_health": 65,
+        "water_stress_index": 0.37,
+        "weather_risk": "medium",
+        "weather_risk_reason": "Intermittent heavy showers",
+        "disease_alerts": 7,
+        "top_issues": [
+          "Pink bollworm - cotton",
+          "Boll rot after heavy rain"
+        ],
+        "advisories_issued_7d": 849,
+        "reference_date": "2026-09-28",
+        "blocks": [
+          {
+            "block": "Achalpur",
+            "avg_farm_health": 69,
+            "water_stress_index": 0.47,
+            "disease_alerts": 3
+          },
+          {
+            "block": "Morshi",
+            "avg_farm_health": 71,
+            "water_stress_index": 0.52,
+            "disease_alerts": 3
+          },
+          {
+            "block": "Daryapur",
+            "avg_farm_health": 64,
+            "water_stress_index": 0.49,
+            "disease_alerts": 1
+          }
+        ]
+      },
+      {
+        "district_id": "MH-JLN",
+        "district": "Jalna",
+        "lat": 19.84,
+        "lon": 75.88,
+        "farmers_represented": 4711,
+        "fields_represented": 6929,
+        "crop_distribution_pct": {
+          "cotton": 46,
+          "soybean": 22,
+          "bajra": 12,
+          "other": 20
+        },
+        "avg_farm_health": 65,
+        "water_stress_index": 0.41,
+        "weather_risk": "medium",
+        "weather_risk_reason": "Intermittent heavy showers",
+        "disease_alerts": 0,
+        "top_issues": [
+          "Pink bollworm - cotton",
+          "Boll rot after heavy rain"
+        ],
+        "advisories_issued_7d": 273,
+        "reference_date": "2026-09-28",
+        "blocks": [
+          {
+            "block": "Ambad",
+            "avg_farm_health": 70,
+            "water_stress_index": 0.45,
+            "disease_alerts": 0
+          },
+          {
+            "block": "Bhokardan",
+            "avg_farm_health": 64,
+            "water_stress_index": 0.46,
+            "disease_alerts": 0
+          },
+          {
+            "block": "Partur",
+            "avg_farm_health": 70,
+            "water_stress_index": 0.5,
+            "disease_alerts": 0
+          }
+        ]
+      },
+      {
+        "district_id": "MH-NGP",
+        "district": "Nagpur",
+        "lat": 21.15,
+        "lon": 79.09,
+        "farmers_represented": 5099,
+        "fields_represented": 6409,
+        "crop_distribution_pct": {
+          "soybean": 30,
+          "cotton": 26,
+          "paddy": 22,
+          "other": 22
+        },
+        "avg_farm_health": 71,
+        "water_stress_index": 0.27,
+        "weather_risk": "low",
+        "weather_risk_reason": "Near-normal conditions",
+        "disease_alerts": 8,
+        "top_issues": [
+          "Pink bollworm - cotton",
+          "Boll rot after heavy rain"
+        ],
+        "advisories_issued_7d": 127,
+        "reference_date": "2026-09-28",
+        "blocks": [
+          {
+            "block": "Katol",
+            "avg_farm_health": 70,
+            "water_stress_index": 0.16,
+            "disease_alerts": 2
+          },
+          {
+            "block": "Umred",
+            "avg_farm_health": 74,
+            "water_stress_index": 0.26,
+            "disease_alerts": 3
+          },
+          {
+            "block": "Ramtek",
+            "avg_farm_health": 80,
+            "water_stress_index": 0.19,
+            "disease_alerts": 3
+          }
+        ]
+      }
+    ],
+    "PB": [
+      {
+        "district_id": "PB-LDH",
+        "district": "Ludhiana",
+        "lat": 30.9,
+        "lon": 75.85,
+        "farmers_represented": 4444,
+        "fields_represented": 5813,
+        "crop_distribution_pct": {
+          "wheat": 82,
+          "mustard": 4,
+          "other": 14
+        },
+        "avg_farm_health": 75,
+        "water_stress_index": 0.28,
+        "weather_risk": "low",
+        "weather_risk_reason": "Near-normal conditions",
+        "disease_alerts": 8,
+        "top_issues": [
+          "Yellow (stripe) rust - wheat",
+          "Terminal heat risk"
+        ],
+        "advisories_issued_7d": 574,
+        "reference_date": "2026-02-18",
+        "blocks": [
+          {
+            "block": "Mullanpur Dakha",
+            "avg_farm_health": 75,
+            "water_stress_index": 0.26,
+            "disease_alerts": 2
+          },
+          {
+            "block": "Jagraon",
+            "avg_farm_health": 79,
+            "water_stress_index": 0.3,
+            "disease_alerts": 3
+          },
+          {
+            "block": "Samrala",
+            "avg_farm_health": 82,
+            "water_stress_index": 0.31,
+            "disease_alerts": 3
+          }
+        ]
+      },
+      {
+        "district_id": "PB-SGR",
+        "district": "Sangrur",
+        "lat": 30.25,
+        "lon": 75.84,
+        "farmers_represented": 5140,
+        "fields_represented": 6369,
+        "crop_distribution_pct": {
+          "wheat": 85,
+          "mustard": 3,
+          "other": 12
+        },
+        "avg_farm_health": 63,
+        "water_stress_index": 0.38,
+        "weather_risk": "medium",
+        "weather_risk_reason": "Cool humid nights favour rust",
+        "disease_alerts": 8,
+        "top_issues": [
+          "Yellow (stripe) rust - wheat",
+          "Terminal heat risk"
+        ],
+        "advisories_issued_7d": 549,
+        "reference_date": "2026-02-18",
+        "blocks": [
+          {
+            "block": "Dhuri",
+            "avg_farm_health": 73,
+            "water_stress_index": 0.44,
+            "disease_alerts": 1
+          },
+          {
+            "block": "Sunam",
+            "avg_farm_health": 70,
+            "water_stress_index": 0.47,
+            "disease_alerts": 3
+          },
+          {
+            "block": "Malerkotla",
+            "avg_farm_health": 59,
+            "water_stress_index": 0.4,
+            "disease_alerts": 4
+          }
+        ]
+      },
+      {
+        "district_id": "PB-BTH",
+        "district": "Bathinda",
+        "lat": 30.21,
+        "lon": 74.95,
+        "farmers_represented": 4596,
+        "fields_represented": 7224,
+        "crop_distribution_pct": {
+          "wheat": 70,
+          "chickpea": 6,
+          "mustard": 8,
+          "other": 16
+        },
+        "avg_farm_health": 69,
+        "water_stress_index": 0.5,
+        "weather_risk": "medium",
+        "weather_risk_reason": "Cool humid nights favour rust",
+        "disease_alerts": 12,
+        "top_issues": [
+          "Yellow (stripe) rust - wheat",
+          "Terminal heat risk"
+        ],
+        "advisories_issued_7d": 490,
+        "reference_date": "2026-02-18",
+        "blocks": [
+          {
+            "block": "Rampura Phul",
+            "avg_farm_health": 70,
+            "water_stress_index": 0.47,
+            "disease_alerts": 4
+          },
+          {
+            "block": "Talwandi Sabo",
+            "avg_farm_health": 62,
+            "water_stress_index": 0.41,
+            "disease_alerts": 4
+          },
+          {
+            "block": "Maur",
+            "avg_farm_health": 67,
+            "water_stress_index": 0.39,
+            "disease_alerts": 4
+          }
+        ]
+      },
+      {
+        "district_id": "PB-PTL",
+        "district": "Patiala",
+        "lat": 30.34,
+        "lon": 76.39,
+        "farmers_represented": 4202,
+        "fields_represented": 6320,
+        "crop_distribution_pct": {
+          "wheat": 84,
+          "other": 16
+        },
+        "avg_farm_health": 72,
+        "water_stress_index": 0.16,
+        "weather_risk": "low",
+        "weather_risk_reason": "Near-normal conditions",
+        "disease_alerts": 3,
+        "top_issues": [
+          "Yellow (stripe) rust - wheat",
+          "Terminal heat risk"
+        ],
+        "advisories_issued_7d": 482,
+        "reference_date": "2026-02-18",
+        "blocks": [
+          {
+            "block": "Rajpura",
+            "avg_farm_health": 70,
+            "water_stress_index": 0.27,
+            "disease_alerts": 2
+          },
+          {
+            "block": "Nabha",
+            "avg_farm_health": 73,
+            "water_stress_index": 0.3,
+            "disease_alerts": 0
+          },
+          {
+            "block": "Samana",
+            "avg_farm_health": 67,
+            "water_stress_index": 0.28,
+            "disease_alerts": 1
+          }
+        ]
+      },
+      {
+        "district_id": "PB-MGA",
+        "district": "Moga",
+        "lat": 30.82,
+        "lon": 75.17,
+        "farmers_represented": 4888,
+        "fields_represented": 7107,
+        "crop_distribution_pct": {
+          "wheat": 86,
+          "other": 14
+        },
+        "avg_farm_health": 72,
+        "water_stress_index": 0.21,
+        "weather_risk": "low",
+        "weather_risk_reason": "Near-normal conditions",
+        "disease_alerts": 5,
+        "top_issues": [
+          "Yellow (stripe) rust - wheat",
+          "Terminal heat risk"
+        ],
+        "advisories_issued_7d": 451,
+        "reference_date": "2026-02-18",
+        "blocks": [
+          {
+            "block": "Dharamkot",
+            "avg_farm_health": 74,
+            "water_stress_index": 0.33,
+            "disease_alerts": 2
+          },
+          {
+            "block": "Baghapurana",
+            "avg_farm_health": 70,
+            "water_stress_index": 0.34,
+            "disease_alerts": 3
+          },
+          {
+            "block": "Nihal Singh Wala",
+            "avg_farm_health": 80,
+            "water_stress_index": 0.28,
+            "disease_alerts": 0
+          }
+        ]
+      }
+    ]
+  }
+}

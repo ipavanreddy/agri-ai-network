@@ -1,0 +1,31 @@
+{
+  "properties": {
+    "answer": {
+      "title": "Answer",
+      "type": "string"
+    },
+    "grounded_on": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Grounded On",
+      "type": "array"
+    },
+    "follow_up_suggestion": {
+      "title": "Follow Up Suggestion",
+      "type": "string"
+    },
+    "requires_expert_review": {
+      "title": "Requires Expert Review",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "answer",
+    "grounded_on",
+    "follow_up_suggestion",
+    "requires_expert_review"
+  ],
+  "title": "AskAI",
+  "type": "object"
+}

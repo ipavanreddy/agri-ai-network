@@ -1,0 +1,50 @@
+{
+  "description": "Provenance stored on every AI-generated record (CLAUDE.md non-negotiable).",
+  "properties": {
+    "model_name": {
+      "title": "Model Name",
+      "type": "string"
+    },
+    "model_version": {
+      "title": "Model Version",
+      "type": "string"
+    },
+    "prompt_version": {
+      "title": "Prompt Version",
+      "type": "string"
+    },
+    "generated_at": {
+      "format": "date-time",
+      "title": "Generated At",
+      "type": "string"
+    },
+    "mode": {
+      "enum": [
+        "live",
+        "demo"
+      ],
+      "title": "Mode",
+      "type": "string"
+    },
+    "fallback_reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Fallback Reason"
+    }
+  },
+  "required": [
+    "model_name",
+    "model_version",
+    "prompt_version",
+    "mode"
+  ],
+  "title": "AIRecordMeta",
+  "type": "object"
+}

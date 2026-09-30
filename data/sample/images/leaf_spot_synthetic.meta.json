@@ -1,0 +1,13 @@
+{
+  "_meta": {
+    "source": "Procedurally drawn synthetic leaf with brown spots (no real photo)",
+    "reference_timestamp": "2026-09-30T00:00:00+05:30",
+    "dataset_version": "sample-2026.09.30-v1",
+    "geographic_scope": "n/a",
+    "is_sample": true,
+    "is_synthetic": true,
+    "generated_by": "data/scripts/generate_sample_data.py",
+    "seed": 20260930,
+    "note": "For exercising the upload flow; not a real crop photograph."
+  }
+}

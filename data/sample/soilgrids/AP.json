@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "source": "SoilGrids 2.0-shaped synthetic texture extract (0-15 cm)",
+    "reference_timestamp": "2020-01-01T00:00:00Z",
+    "dataset_version": "sample-2026.09.30-v1",
+    "geographic_scope": "AP demo field point",
+    "is_sample": true,
+    "is_synthetic": true,
+    "generated_by": "data/scripts/generate_sample_data.py",
+    "seed": 20260930,
+    "note": "Modelled texture baseline; replaced by live SoilGrids when reachable."
+  },
+  "clay_pct": 18,
+  "sand_pct": 66,
+  "silt_pct": 16
+}

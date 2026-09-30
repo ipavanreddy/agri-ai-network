@@ -1,0 +1,210 @@
+{
+  "$defs": {
+    "Crop": {
+      "properties": {
+        "crop_name": {
+          "description": "Canonical crop id, e.g. groundnut, cotton, wheat",
+          "title": "Crop Name",
+          "type": "string"
+        },
+        "variety": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Variety"
+        },
+        "season": {
+          "anyOf": [
+            {
+              "enum": [
+                "kharif",
+                "rabi",
+                "zaid"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Season"
+        },
+        "sowing_date": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Sowing Date"
+        },
+        "growth_stage": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Growth Stage"
+        }
+      },
+      "required": [
+        "crop_name"
+      ],
+      "title": "Crop",
+      "type": "object"
+    },
+    "GeoPoint": {
+      "properties": {
+        "lat": {
+          "title": "Lat",
+          "type": "number"
+        },
+        "lon": {
+          "title": "Lon",
+          "type": "number"
+        }
+      },
+      "required": [
+        "lat",
+        "lon"
+      ],
+      "title": "GeoPoint",
+      "type": "object"
+    }
+  },
+  "description": "A farmer's field. (Named Field_ to avoid clashing with pydantic.Field.)",
+  "properties": {
+    "field_id": {
+      "title": "Field Id",
+      "type": "string"
+    },
+    "farmer_id": {
+      "title": "Farmer Id",
+      "type": "string"
+    },
+    "name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Name"
+    },
+    "state": {
+      "title": "State",
+      "type": "string"
+    },
+    "district": {
+      "title": "District",
+      "type": "string"
+    },
+    "block": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Block"
+    },
+    "village": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Village"
+    },
+    "geometry": {
+      "additionalProperties": true,
+      "description": "GeoJSON Polygon, [lon, lat] order",
+      "title": "Geometry",
+      "type": "object"
+    },
+    "centroid": {
+      "$ref": "#/$defs/GeoPoint"
+    },
+    "area_acres": {
+      "title": "Area Acres",
+      "type": "number"
+    },
+    "irrigation": {
+      "default": "rainfed",
+      "title": "Irrigation",
+      "type": "string"
+    },
+    "farming_practice": {
+      "default": "conventional",
+      "title": "Farming Practice",
+      "type": "string"
+    },
+    "crop": {
+      "$ref": "#/$defs/Crop"
+    },
+    "local_ref": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Local Ref"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "source_system": {
+      "default": "platform",
+      "title": "Source System",
+      "type": "string"
+    },
+    "is_sample": {
+      "default": false,
+      "title": "Is Sample",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "field_id",
+    "farmer_id",
+    "state",
+    "district",
+    "geometry",
+    "centroid",
+    "area_acres",
+    "crop"
+  ],
+  "title": "Field_",
+  "type": "object"
+}

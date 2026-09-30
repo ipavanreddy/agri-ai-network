@@ -1,0 +1,135 @@
+{
+  "$defs": {
+    "HealthFactor": {
+      "properties": {
+        "key": {
+          "enum": [
+            "vegetation",
+            "soil",
+            "weather",
+            "water",
+            "crop_condition"
+          ],
+          "title": "Key",
+          "type": "string"
+        },
+        "label": {
+          "title": "Label",
+          "type": "string"
+        },
+        "weight": {
+          "title": "Weight",
+          "type": "number"
+        },
+        "score": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "0-100; None when inputs are missing",
+          "title": "Score"
+        },
+        "status": {
+          "enum": [
+            "good",
+            "moderate",
+            "poor",
+            "missing"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "drivers": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Drivers",
+          "type": "array"
+        },
+        "inputs": {
+          "additionalProperties": true,
+          "default": {},
+          "title": "Inputs",
+          "type": "object"
+        }
+      },
+      "required": [
+        "key",
+        "label",
+        "weight",
+        "status"
+      ],
+      "title": "HealthFactor",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "score": {
+      "title": "Score",
+      "type": "integer"
+    },
+    "band": {
+      "enum": [
+        "Good",
+        "Moderate",
+        "Poor"
+      ],
+      "title": "Band",
+      "type": "string"
+    },
+    "factors": {
+      "items": {
+        "$ref": "#/$defs/HealthFactor"
+      },
+      "title": "Factors",
+      "type": "array"
+    },
+    "weights": {
+      "additionalProperties": {
+        "type": "number"
+      },
+      "title": "Weights",
+      "type": "object"
+    },
+    "effective_weights": {
+      "additionalProperties": {
+        "type": "number"
+      },
+      "title": "Effective Weights",
+      "type": "object"
+    },
+    "missing_factors": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Missing Factors",
+      "type": "array"
+    },
+    "method": {
+      "default": "farm_health_rules_v1",
+      "title": "Method",
+      "type": "string"
+    },
+    "computed_at": {
+      "format": "date-time",
+      "title": "Computed At",
+      "type": "string"
+    }
+  },
+  "required": [
+    "score",
+    "band",
+    "factors",
+    "weights",
+    "effective_weights"
+  ],
+  "title": "FarmHealth",
+  "type": "object"
+}

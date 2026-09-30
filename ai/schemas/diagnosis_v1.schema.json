@@ -1,0 +1,110 @@
+{
+  "$defs": {
+    "PotentialCondition": {
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "likelihood": {
+          "title": "Likelihood",
+          "type": "number"
+        },
+        "visible_evidence": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Visible Evidence",
+          "type": "array"
+        }
+      },
+      "required": [
+        "name",
+        "likelihood",
+        "visible_evidence"
+      ],
+      "title": "PotentialCondition",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "image_usable": {
+      "title": "Image Usable",
+      "type": "boolean"
+    },
+    "image_issue": {
+      "title": "Image Issue",
+      "type": "string"
+    },
+    "plant_part": {
+      "enum": [
+        "leaf",
+        "stem",
+        "fruit",
+        "whole_plant",
+        "canopy",
+        "unknown"
+      ],
+      "title": "Plant Part",
+      "type": "string"
+    },
+    "potential_conditions": {
+      "items": {
+        "$ref": "#/$defs/PotentialCondition"
+      },
+      "title": "Potential Conditions",
+      "type": "array"
+    },
+    "visible_symptoms": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Visible Symptoms",
+      "type": "array"
+    },
+    "severity": {
+      "enum": [
+        "none",
+        "low",
+        "moderate",
+        "high",
+        "unknown"
+      ],
+      "title": "Severity",
+      "type": "string"
+    },
+    "confidence": {
+      "title": "Confidence",
+      "type": "number"
+    },
+    "recommended_next_actions": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Recommended Next Actions",
+      "type": "array"
+    },
+    "requires_expert_review": {
+      "title": "Requires Expert Review",
+      "type": "boolean"
+    },
+    "explanation": {
+      "title": "Explanation",
+      "type": "string"
+    }
+  },
+  "required": [
+    "image_usable",
+    "image_issue",
+    "plant_part",
+    "potential_conditions",
+    "visible_symptoms",
+    "severity",
+    "confidence",
+    "recommended_next_actions",
+    "requires_expert_review",
+    "explanation"
+  ],
+  "title": "DiagnosisAI",
+  "type": "object"
+}
