@@ -1,6 +1,6 @@
 # Agri AI Network: AI-Powered Interoperable Digital Agriculture Network
 
-Build with AI (Google) hackathon, Track 4. Full spec: [docs/PRD.md](docs/PRD.md) · Submission pack: [docs/SUBMISSION.md](docs/SUBMISSION.md) · Pitch deck: [docs/pitch/](docs/pitch/)
+Build with AI (Google) hackathon, Track 4. Full spec: [docs/PRD.md](docs/PRD.md) · Submission pack: [docs/SUBMISSION.md](docs/SUBMISSION.md) · Pitch deck: [PPTX](docs/pitch/Agri_AI_Network_Spontom_Pitch.pptx) · [PDF](docs/pitch/Agri_AI_Network_Spontom_Pitch.pdf)
 
 > **Agri AI Network gives a smallholder farmer one advisor for their own field.** It combines live weather,
 > Soil Health Card data and satellite vegetation into a Farm Health score, then uses Gemini to turn that into a
@@ -240,4 +240,4 @@ pnpm build
 | `ai/` | Versioned prompts and exported output schemas |
 | `data/` | Canonical schemas, state adapters, labelled sample data, generator and BigQuery loader |
 | `infrastructure/cloud-run/` | `deploy.sh` (all services), `cloudbuild.yaml`, deployment notes |
-| `docs/` | PRD, submission pack, pitch deck |
+| `docs/` | PRD, submission pack, pitch deck (`docs/pitch/`: `npm install && node build-deck.js`) |

@@ -86,7 +86,7 @@ No model was trained or fine-tuned for this project. Prompts (`ai/prompts/`) and
 | pnpm | MIT | https://pnpm.io | JS workspace |
 | uv (and `ghcr.io/astral-sh/uv` image) | MIT / Apache-2.0 | https://github.com/astral-sh/uv | Python env and Docker install |
 | Docker official images `python:3.12-slim`, `node:22-slim` | PSF / MIT (+ Debian package licences) | https://hub.docker.com/_/python | Container base images |
-| python-pptx | MIT | https://github.com/scanny/python-pptx | Generating the pitch deck (`docs/pitch/build_deck.py`) |
+| PptxGenJS | MIT | https://github.com/gitbrent/PptxGenJS | Generating the pitch deck (`docs/pitch/build-deck.js`, Spontom deck kit `docs/pitch/deck-kit.js`) |
 
 ## Project-generated data (no third-party content)
 
@@ -96,3 +96,10 @@ No model was trained or fine-tuned for this project. Prompts (`ai/prompts/`) and
 | Crop catalogue (indicative requirement ranges, expected NDVI by stage) | `data/sample/crops/crop_catalog.json` | Curated for the demo from general agronomy knowledge; not validated extension advice |
 | Hindi / Telugu UI and demo-advisory strings | `apps/farmer-web/src/lib/i18n.tsx`, `services/api/app/advisory/messages.py` | Hand-written demo translations; need native-speaker review |
 | Prompts, schemas, state adapters | `ai/`, `data/adapters/`, `data/schemas/` | Original work |
+
+## Pitch deck assets (`docs/pitch/assets/`)
+
+| Name | Source | Notes |
+|---|---|---|
+| `spontom-mark.png` | Spontom Enterprise Private Limited | Company logo (own mark of the submitting company) |
+| `cover-farm-health.png`, `farmer-app.png`, `farmer-crop-doctor.png`, `officer-dashboard.png` | Screenshots of this prototype (headless Chrome, 30 Sep 2026) | Show the sample farmer and labelled synthetic indicators; the officer map tiles are © OpenStreetMap contributors (ODbL). No AI-generated images are used (Imagen was not available to the project at build time) |
