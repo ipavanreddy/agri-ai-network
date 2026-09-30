@@ -29,7 +29,7 @@ export function FieldSetup({ states, crops, farmers, fields, selectedFieldId, on
   const mapProvider = useMapProvider();
   const [drawing, setDrawing] = useState(false);
   const [points, setPoints] = useState<LatLng[]>([]);
-  const [form, setForm] = useState({ name: "", state: "AP", district: "", village: "", crop: "", sowing: "", irrigation: "rainfed" });
+  const [form, setForm] = useState({ name: "", state: "AP", district: "", village: "", crop: "", sowing: "", irrigation: "rainfed", area: "" });
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [query, setQuery] = useState("");
@@ -90,6 +90,7 @@ export function FieldSetup({ states, crops, farmers, fields, selectedFieldId, on
         crop_name: form.crop || stateCfg.primary_crop,
         sowing_date: form.sowing || null,
         irrigation: form.irrigation,
+        area_acres: Number(form.area) > 0 ? Number(form.area) : null,
       });
       setPoints([]);
       setDrawing(false);
@@ -218,6 +219,10 @@ export function FieldSetup({ states, crops, farmers, fields, selectedFieldId, on
                     </option>
                   ))}
                 </select>
+              </label>
+              <label className="text-xs">
+                {t("area")} ({t("acres")}) · optional, else from the drawn boundary
+                <Input type="number" min="0.1" step="0.1" value={form.area} onChange={(e) => setForm({ ...form, area: e.target.value })} />
               </label>
               <div className="flex items-end">
                 <Button onClick={save} disabled={busy || points.length < 3} className="w-full">
