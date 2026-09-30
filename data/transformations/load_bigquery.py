@@ -3,7 +3,7 @@
     cd services/api && uv run python ../../data/transformations/load_bigquery.py
 
 Needs GOOGLE_CLOUD_PROJECT (+ ADC or GOOGLE_APPLICATION_CREDENTIALS) and BIGQUERY_DATASET in the repo .env.
-Creates/replaces `{project}.{dataset}.district_indicators`. Nested fields are stored as JSON strings and
+Creates/replaces the table `{project}.{dataset}.district_indicators` (the dataset must already exist). Nested fields are stored as JSON strings and
 decoded by services/api/app/analytics/service.py. Replace this sample with real state feeds later.
 """
 
@@ -32,9 +32,8 @@ def main() -> None:
                          "blocks": json.dumps(d["blocks"]), "top_issues": json.dumps(d["top_issues"]),
                          "source": meta["source"], "dataset_version": meta["dataset_version"], "is_sample": True})
     client = bigquery.Client(project=settings.google_cloud_project)
-    dataset = bigquery.Dataset(f"{settings.google_cloud_project}.{settings.bigquery_dataset}")
-    dataset.location = settings.google_cloud_location
-    client.create_dataset(dataset, exists_ok=True)
+    # The dataset is provisioned by the project owner; this script only (re)creates the table inside it.
+    client.get_dataset(f"{settings.google_cloud_project}.{settings.bigquery_dataset}")
     table = f"{settings.google_cloud_project}.{settings.bigquery_dataset}.district_indicators"
     job = client.load_table_from_json(rows, table, job_config=bigquery.LoadJobConfig(
         autodetect=True, write_disposition="WRITE_TRUNCATE"))

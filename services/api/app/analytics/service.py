@@ -46,9 +46,14 @@ def district_rows(state_id: str) -> tuple[list[dict[str, Any]], Provenance]:
         try:
             rows = _bigquery_rows(state_id)
             if rows:
-                return rows, Provenance(source=f"BigQuery {settings.bigquery_dataset}.district_indicators",
-                                        reference_timestamp=datetime.now(UTC), mode="live",
-                                        note="Loaded by data/transformations/load_bigquery.py")
+                sample = any(r.get("is_sample") for r in rows)
+                return rows, Provenance(
+                    source=f"BigQuery {settings.bigquery_dataset}.district_indicators"
+                           + (f" ({rows[0].get('source')})" if rows[0].get("source") else ""),
+                    reference_timestamp=datetime.now(UTC), mode="live", dataset_version=rows[0].get("dataset_version"),
+                    is_sample=sample, is_synthetic=sample,
+                    note="Served live from BigQuery; rows were loaded from the labelled synthetic sample by "
+                         "data/transformations/load_bigquery.py" if sample else "Served live from BigQuery")
         except Exception as exc:
             log.warning("BigQuery unavailable: %s", exc)
     sample = load_sample("regional/district_indicators.json")

@@ -1,7 +1,7 @@
 "use client";
 
 import "leaflet/dist/leaflet.css";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type * as Leaflet from "leaflet";
 import type { Field } from "@/lib/types";
 
@@ -20,12 +20,37 @@ type Props = {
 
 const MAPS_KEY = process.env.NEXT_PUBLIC_MAPS_API_KEY ?? "";
 
-/** Google Maps (satellite) when NEXT_PUBLIC_MAPS_API_KEY is set; Leaflet + OpenStreetMap otherwise. */
-export function FieldMap(props: Props) {
-  return MAPS_KEY ? <GoogleFieldMap {...props} /> : <LeafletFieldMap {...props} />;
+// Google Maps reports key / referrer problems through window.gm_authFailure; when that fires (or the
+// script fails to load) the map switches to Leaflet + OpenStreetMap and the badges report the fallback.
+let googleFailed = false;
+const failListeners = new Set<() => void>();
+function markGoogleFailed() {
+  googleFailed = true;
+  failListeners.forEach((l) => l());
+}
+export function useGoogleMapsFailed(): boolean {
+  return useSyncExternalStore(
+    (l) => {
+      failListeners.add(l);
+      return () => failListeners.delete(l);
+    },
+    () => googleFailed,
+    () => false,
+  );
+}
+/** Map provider label that reflects what is actually rendering. */
+export function useMapProvider(): { live: boolean; label: string } {
+  const failed = useGoogleMapsFailed();
+  if (MAPS_KEY && !failed) return { live: true, label: "Google Maps" };
+  return { live: false, label: MAPS_KEY ? "OpenStreetMap (Leaflet) · Google Maps key rejected for this site" : "OpenStreetMap (Leaflet) · demo fallback" };
 }
 
-export const mapProvider = MAPS_KEY ? "Google Maps" : "OpenStreetMap (Leaflet) · demo fallback";
+/** Google Maps (satellite) when NEXT_PUBLIC_MAPS_API_KEY is set; Leaflet + OpenStreetMap otherwise. */
+export function FieldMap(props: Props) {
+  const failed = useGoogleMapsFailed();
+  return MAPS_KEY && !failed ? <GoogleFieldMap {...props} /> : <LeafletFieldMap {...props} />;
+}
+
 
 const ringLatLngs = (f: Field): LatLng[] => f.geometry.coordinates[0].map(([lon, lat]) => [lat, lon]);
 
@@ -105,7 +130,11 @@ function loadGoogleMaps(key: string): Promise<typeof google> {
     const s = document.createElement("script");
     s.src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(key)}&v=weekly&loading=async&callback=${cbName}`;
     s.async = true;
-    s.onerror = () => reject(new Error("Google Maps failed to load"));
+    (window as unknown as Record<string, () => void>).gm_authFailure = markGoogleFailed;
+    s.onerror = () => {
+      markGoogleFailed();
+      reject(new Error("Google Maps failed to load"));
+    };
     document.head.appendChild(s);
   });
   return googleLoader;

@@ -3,7 +3,7 @@
 from typing import Any
 
 from fastapi import APIRouter, File, Form, HTTPException, UploadFile
-from fastapi.responses import FileResponse, RedirectResponse
+from fastapi.responses import FileResponse, Response
 from pydantic import BaseModel, Field
 
 from app.advisory import service
@@ -105,8 +105,12 @@ def list_diagnoses(field_id: str | None = None) -> list[dict[str, Any]]:
 def diagnosis_image(diagnosis_id: str):
     doc = _get("diagnoses", diagnosis_id)
     if doc["image_url"].startswith("gs://"):
-        bucket, _, name = doc["image_url"][5:].partition("/")
-        return RedirectResponse(f"https://storage.cloud.google.com/{bucket}/{name}")
+        # The bucket stays private: stream the object through the API (the service account can read it).
+        try:
+            data = diagnosis.read_gcs_image(doc["image_url"])
+        except Exception as exc:
+            raise HTTPException(status_code=502, detail=f"image unavailable: {type(exc).__name__}") from exc
+        return Response(content=data, media_type=doc["image_mime"], headers={"Cache-Control": "private, max-age=3600"})
     path = diagnosis.local_image_path(diagnosis_id)
     if not path:
         raise HTTPException(status_code=404, detail="image not found")

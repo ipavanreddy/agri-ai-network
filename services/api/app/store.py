@@ -66,6 +66,8 @@ class FirestoreStore:
 
         app = firebase_admin.initialize_app(options={"projectId": project_id}) if not firebase_admin._apps else None
         self._db = firestore.client(app)
+        # Fail fast (and fall back to SQLite) when the project has no Firestore database or no access.
+        self._db.collection("_meta").document("probe").get(timeout=8, retry=None)
 
     def put(self, collection: str, doc_id: str, data: dict[str, Any]) -> None:
         self._db.collection(collection).document(doc_id).set(json.loads(json.dumps(data, default=str)))

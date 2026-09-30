@@ -13,7 +13,7 @@ class Settings(BaseSettings):
 
     project_name: str = "agri-ai-network"
     gemini_api_key: str = ""
-    gemini_model: str = "gemini-flash-latest"
+    gemini_model: str = "gemini-2.5-flash"
     google_genai_use_vertexai: bool = False
     google_cloud_project: str = ""
     google_cloud_location: str = "asia-south1"

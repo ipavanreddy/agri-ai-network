@@ -1,15 +1,15 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Loader2, MapPin, Plus, Trash2 } from "lucide-react";
+import { Loader2, MapPin, Plus, Search, Trash2 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { FieldMap, mapProvider, type LatLng } from "@/components/field-map";
-import { apiPost } from "@/lib/api";
+import { FieldMap, useMapProvider, type LatLng } from "@/components/field-map";
+import { apiGet, apiPost } from "@/lib/api";
 import { useI18n } from "@/lib/i18n";
-import type { Crop, Farmer, Field, StateConfig } from "@/lib/types";
+import type { Crop, Farmer, Field, GeocodeResult, StateConfig } from "@/lib/types";
 
 const IRRIGATION = ["rainfed", "supplemental", "borewell", "canal", "drip", "tank"];
 const selectCls = "h-8 w-full rounded-lg border border-input bg-transparent px-2 text-sm";
@@ -26,22 +26,47 @@ type Props = {
 
 export function FieldSetup({ states, crops, farmers, fields, selectedFieldId, onSelectField, onCreated }: Props) {
   const { t, lang } = useI18n();
+  const mapProvider = useMapProvider();
   const [drawing, setDrawing] = useState(false);
   const [points, setPoints] = useState<LatLng[]>([]);
   const [form, setForm] = useState({ name: "", state: "AP", district: "", village: "", crop: "", sowing: "", irrigation: "rainfed" });
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [query, setQuery] = useState("");
+  const [found, setFound] = useState<GeocodeResult | null>(null);
+  const [searchNote, setSearchNote] = useState<string | null>(null);
 
   const selected = fields.find((f) => f.field_id === selectedFieldId) ?? null;
   const stateCfg = states.find((s) => s.state_id === form.state) ?? states[0];
   const district = stateCfg?.districts.find((d) => d.name === form.district) ?? stateCfg?.districts[0];
   const stateCrops = crops.filter((c) => stateCfg?.supported_crops.includes(c.crop_id));
   const center = useMemo<LatLng>(() => {
+    if (drawing && found) return [found.lat, found.lon];
     if (drawing && district) return [district.lat, district.lon];
     if (selected) return [selected.centroid.lat, selected.centroid.lon];
     return [20.5, 78.9];
-  }, [drawing, district, selected]);
-  const zoom = drawing ? 13 : selected ? 16 : 5;
+  }, [drawing, found, district, selected]);
+  const zoom = drawing ? (found ? 15 : 13) : selected ? 16 : 5;
+
+  async function search() {
+    if (query.trim().length < 2) return;
+    setSearchNote(null);
+    try {
+      const res = await apiGet<{ results: GeocodeResult[]; mode: string; note?: string }>(`/api/geocode?q=${encodeURIComponent(query.trim())}`);
+      const hit = res.results[0];
+      if (!hit) {
+        setSearchNote(res.note ?? "No match - pick the district below instead.");
+        return;
+      }
+      setFound(hit);
+      setSearchNote(`${hit.label} · Google Maps Geocoding`);
+      const st = states.find((s) => s.state_name.toLowerCase() === (hit.state ?? "").toLowerCase());
+      const d = st?.districts.find((x) => [hit.district, hit.village].some((n) => n && n.toLowerCase().startsWith(x.name.toLowerCase().slice(0, 5))));
+      setForm((f) => ({ ...f, state: st?.state_id ?? f.state, district: d?.name ?? (st ? "" : f.district), village: f.village || hit.village || "" }));
+    } catch (e) {
+      setSearchNote((e as Error).message);
+    }
+  }
 
   async function save() {
     if (points.length < 3) {
@@ -80,7 +105,7 @@ export function FieldSetup({ states, crops, farmers, fields, selectedFieldId, on
     <Card>
       <CardHeader>
         <CardTitle>{t("step_field")}</CardTitle>
-        <CardDescription>Map: {mapProvider}</CardDescription>
+        <CardDescription>Map: {mapProvider.label}</CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
         <div>
@@ -122,6 +147,19 @@ export function FieldSetup({ states, crops, farmers, fields, selectedFieldId, on
 
         {drawing ? (
           <div className="flex flex-col gap-3 rounded-lg border p-3">
+            <form
+              className="flex flex-wrap items-center gap-2"
+              onSubmit={(e) => {
+                e.preventDefault();
+                void search();
+              }}
+            >
+              <Input className="max-w-xs" placeholder={t("find_village")} value={query} onChange={(e) => setQuery(e.target.value)} />
+              <Button type="submit" size="sm" variant="outline">
+                <Search /> {t("find_village")}
+              </Button>
+              {searchNote ? <span className="text-xs text-muted-foreground">{searchNote}</span> : null}
+            </form>
             <p className="text-sm text-muted-foreground">
               {t("draw_hint")} ({points.length})
               <Button size="xs" variant="ghost" onClick={() => setPoints([])} className="ml-2">

@@ -1,4 +1,5 @@
 import logging
+import threading
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
@@ -19,6 +20,8 @@ logging.basicConfig(level=logging.INFO)
 @asynccontextmanager
 async def lifespan(_: FastAPI):
     system.seed_demo_data()
+    # warm the integration probes in the background so the first /api/system/status call is fast
+    threading.Thread(target=system.probe_integrations, daemon=True).start()
     yield
 
 

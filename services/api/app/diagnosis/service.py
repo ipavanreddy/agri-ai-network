@@ -73,6 +73,13 @@ def store_image(diagnosis_id: str, data: bytes, mime: str) -> str:
     return f"/api/diagnoses/{diagnosis_id}/image"
 
 
+def read_gcs_image(gs_url: str) -> bytes:
+    from google.cloud import storage
+
+    bucket, _, name = gs_url.removeprefix("gs://").partition("/")
+    return storage.Client(project=settings.google_cloud_project or None).bucket(bucket).blob(name).download_as_bytes()
+
+
 def local_image_path(diagnosis_id: str) -> Path | None:
     for ext in EXT.values():
         p = Path(settings.upload_dir) / "diagnoses" / f"{diagnosis_id}.{ext}"

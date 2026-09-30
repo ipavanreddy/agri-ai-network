@@ -33,6 +33,7 @@ export type Field = {
   district: string;
   block?: string | null;
   village?: string | null;
+  place_label?: string | null;
   geometry: Polygon;
   centroid: { lat: number; lon: number };
   area_acres: number;
@@ -237,3 +238,17 @@ export type AskAnswer = {
 
 export type Integration = { key: string; label: string; mode: "live" | "demo" | null; env: string; detail: string };
 export type SystemStatus = { integrations: Integration[]; demo_mode: boolean; gemini_model: string };
+
+export type SupportPlace = {
+  name: string;
+  address: string;
+  kind: string;
+  lat: number;
+  lon: number;
+  straight_km: number;
+  distance_km?: number;
+  duration_min?: number;
+  maps_url: string;
+};
+export type NearbySupport = { field_id: string; places: SupportPlace[]; mode: "live" | "demo" | "error"; source?: string; note?: string };
+export type GeocodeResult = { label: string; lat: number; lon: number; village?: string | null; district?: string | null; state?: string | null };

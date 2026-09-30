@@ -5,12 +5,14 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { InteropView } from "@/components/interop-view";
 import { ModeBadge } from "@/components/mode-badge";
+import { useMapProvider } from "@/components/region-map";
 import { RegionalView } from "@/components/regional-view";
 import { ReviewQueue } from "@/components/review-queue";
 import { apiGet } from "@/lib/api";
 import type { Integration, Overview } from "@/lib/types";
 
 export default function OfficerApp() {
+  const { live: MAPS_LIVE, label: mapLabel } = useMapProvider();
   const [overview, setOverview] = useState<Overview | null>(null);
   const [integrations, setIntegrations] = useState<Integration[]>([]);
   const [apiDown, setApiDown] = useState(false);
@@ -33,7 +35,12 @@ export default function OfficerApp() {
     };
   }, []);
 
-  const demo = integrations.filter((i) => i.mode === "demo");
+  // The browser Maps key is baked into this app at build time, so only the app can report it.
+  const all = integrations.map((i) =>
+    i.key === "maps" ? { ...i, mode: MAPS_LIVE ? ("live" as const) : ("demo" as const), detail: MAPS_LIVE ? "Satellite basemap" : mapLabel } : i,
+  );
+  const demo = all.filter((i) => i.mode === "demo");
+  const live = all.filter((i) => i.mode === "live");
   const pending = overview?.platform_activity.pending_reviews ?? 0;
 
   return (
@@ -46,14 +53,23 @@ export default function OfficerApp() {
         </div>
         <div className="flex flex-col items-start gap-1 sm:items-end">
           {apiDown ? <Badge variant="destructive">API unreachable</Badge> : null}
-          {overview ? <ModeBadge demo={overview.demo_mode || demo.length > 0} label={demo.length ? `Demo mode · ${demo.length} integrations on fallback` : undefined} /> : null}
+          {overview ? (
+            <div className="flex flex-wrap gap-1" title={all.map((i) => `${i.mode === "live" ? "LIVE" : "DEMO"} ${i.label}: ${i.detail}`).join("\n")}>
+              <ModeBadge demo={false} label={`${live.length} integrations live`} />
+              {demo.length ? <ModeBadge demo label={`Demo mode · ${demo.length} on fallback`} /> : null}
+            </div>
+          ) : null}
         </div>
       </header>
 
       {demo.length ? (
         <details className="rounded-lg border border-amber-300 bg-amber-50 p-3 text-sm text-amber-950 dark:bg-amber-950/30 dark:text-amber-100">
           <summary className="cursor-pointer font-medium">Demo mode: regional indicators are synthetic samples; some Google integrations use fallbacks</summary>
-          <ul className="mt-2 list-disc pl-5">
+          <p className="mt-2">
+            <span className="font-medium">Live:</span> {live.map((i) => i.label).join(" · ")}
+          </p>
+          <p className="mt-1 font-medium">On fallback:</p>
+          <ul className="list-disc pl-5">
             {demo.map((i) => (
               <li key={i.key}>
                 <span className="font-medium">{i.label}</span>: {i.detail} <span className="text-xs">(enable with {i.env})</span>

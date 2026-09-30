@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { ModeBadge } from "@/components/mode-badge";
-import { RegionMap, mapProvider, type RegionMarker } from "@/components/region-map";
+import { RegionMap, useMapProvider, type RegionMarker } from "@/components/region-map";
 import { apiGet } from "@/lib/api";
 import type { DistrictRisks, Overview, StateAnalytics } from "@/lib/types";
 
@@ -49,6 +49,7 @@ function CropBars({ dist }: { dist: Record<string, number> }) {
 }
 
 export function RegionalView({ overview }: { overview: Overview }) {
+  const mapProvider = useMapProvider();
   const [stateId, setStateId] = useState<string | null>(null);
   const [analytics, setAnalytics] = useState<StateAnalytics | null>(null);
   const [districtId, setDistrictId] = useState<string | null>(null);
@@ -128,7 +129,7 @@ export function RegionalView({ overview }: { overview: Overview }) {
               <ModeBadge demo={view ? view.provenance.is_sample : overview.demo_mode} />
             </CardTitle>
             <CardDescription>
-              {view ? "Colour = weather risk, size = disease/stress alerts. Click a district." : "Colour = average Farm Health. Click a state."} Map: {mapProvider}
+              {view ? "Colour = weather risk, size = disease/stress alerts. Click a district." : "Colour = average Farm Health. Click a state."} Map: {mapProvider.label}
             </CardDescription>
           </CardHeader>
           <CardContent>

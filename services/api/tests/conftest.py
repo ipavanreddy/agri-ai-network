@@ -12,6 +12,7 @@ os.environ.update({
     "GOOGLE_CLOUD_PROJECT": "",
     "GCS_BUCKET": "",
     "GOOGLE_CLOUD_API_KEY": "",
+    "MAPS_API_KEY": "",
     "USE_PUBLIC_APIS": "false",
     "STORE_PATH": os.path.join(_TMP, "test.sqlite"),
     "UPLOAD_DIR": os.path.join(_TMP, "uploads"),

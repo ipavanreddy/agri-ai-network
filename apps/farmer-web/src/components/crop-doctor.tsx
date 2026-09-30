@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { AiBadge } from "@/components/mode-badge";
+import { NearbySupport } from "@/components/nearby-support";
 import { ReviewStatus } from "@/components/review-status";
 import { API_URL, apiUpload } from "@/lib/api";
 import { pct } from "@/lib/format";
@@ -120,6 +121,7 @@ export function CropDoctor({ fieldId, onDiagnosed }: { fieldId: string; onDiagno
                 <p className="font-semibold">{t("next_steps")}</p>
                 <ol className="list-decimal pl-5">{r.recommended_next_actions.map((s, i) => <li key={i}>{s}</li>)}</ol>
               </div>
+              <NearbySupport fieldId={fieldId} />
               <ReviewStatus review={result.review} />
               <p className="text-xs text-muted-foreground">{result.disclaimer}</p>
               <p className="text-xs text-muted-foreground">

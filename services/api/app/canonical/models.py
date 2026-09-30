@@ -68,6 +68,7 @@ class Field_(BaseModel):
     district: str
     block: str | None = None
     village: str | None = None
+    place_label: str | None = Field(None, description="Human-readable address (Google Maps reverse geocoding)")
     geometry: dict[str, Any] = Field(description="GeoJSON Polygon, [lon, lat] order")
     centroid: GeoPoint
     area_acres: float

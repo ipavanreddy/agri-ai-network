@@ -29,7 +29,7 @@ def fetch_soilgrids(lat: float, lon: float) -> dict[str, float]:
     """Modelled soil properties are static, so successful lookups are cached per point."""
     params: list[tuple[str, Any]] = [("lat", lat), ("lon", lon), ("value", "mean")]
     params += [("property", p) for p in CONVERSIONS] + [("depth", "0-5cm"), ("depth", "5-15cm")]
-    res = httpx.get(SOILGRIDS_URL, params=params, timeout=min(settings.public_api_timeout_s, 5.0))
+    res = httpx.get(SOILGRIDS_URL, params=params, timeout=10.0)  # ISRIC often takes 5-8 s; cached per point
     res.raise_for_status()
     return parse_soilgrids(res.json())
 

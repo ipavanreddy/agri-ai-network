@@ -5,6 +5,7 @@ import { Loader2 } from "lucide-react";
 import { AdvisoryPanel } from "@/components/advisory-panel";
 import { CropDoctor } from "@/components/crop-doctor";
 import { CropRecs } from "@/components/crop-recs";
+import { useMapProvider } from "@/components/field-map";
 import { FieldSetup } from "@/components/field-setup";
 import { IntelligencePanel } from "@/components/intelligence-panel";
 import { ModeBadge } from "@/components/mode-badge";
@@ -16,6 +17,7 @@ import { I18nProvider, LANG_LABELS, useI18n } from "@/lib/i18n";
 import type { Crop, Farmer, Field, Intelligence, Lang, StateConfig, SystemStatus } from "@/lib/types";
 
 function Shell() {
+  const { live: MAPS_LIVE, label: mapLabel } = useMapProvider();
   const { t, lang, setLang } = useI18n();
   const [status, setStatus] = useState<SystemStatus | null>(null);
   const [apiDown, setApiDown] = useState(false);
@@ -78,7 +80,12 @@ function Shell() {
   }
 
   const cloudSpeech = status?.integrations.find((i) => i.key === "speech")?.mode === "live";
-  const demoIntegrations = status?.integrations.filter((i) => i.mode === "demo") ?? [];
+  // The browser Maps key is baked into this app at build time, so only the app can report it.
+  const integrations = (status?.integrations ?? []).map((i) =>
+    i.key === "maps" ? { ...i, mode: MAPS_LIVE ? ("live" as const) : ("demo" as const), detail: MAPS_LIVE ? "Satellite basemap" : mapLabel } : i,
+  );
+  const demoIntegrations = integrations.filter((i) => i.mode === "demo");
+  const liveIntegrations = integrations.filter((i) => i.mode === "live");
 
   return (
     <main className="mx-auto flex w-full max-w-6xl flex-col gap-6 p-4 sm:p-6">
@@ -102,8 +109,9 @@ function Shell() {
           </div>
           {apiDown ? <Badge variant="destructive">API unreachable on {process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8040"}</Badge> : null}
           {status ? (
-            <div className="flex flex-wrap gap-1" title={demoIntegrations.map((i) => `${i.label}: ${i.detail} (set ${i.env})`).join("\n")}>
-              <ModeBadge demo={status.demo_mode} label={status.demo_mode ? `Demo mode · ${demoIntegrations.length} integrations on fallback` : "Live integrations"} />
+            <div className="flex flex-wrap gap-1" title={integrations.map((i) => `${i.mode === "live" ? "LIVE" : "DEMO"} ${i.label}: ${i.detail}`).join("\n")}>
+              <ModeBadge demo={false} label={`${liveIntegrations.length} Google/public integrations live`} />
+              {demoIntegrations.length ? <ModeBadge demo label={`Demo mode · ${demoIntegrations.length} on fallback`} /> : null}
             </div>
           ) : null}
         </div>
@@ -112,7 +120,11 @@ function Shell() {
       {status && demoIntegrations.length ? (
         <details className="rounded-lg border border-amber-300 bg-amber-50 p-3 text-sm text-amber-950 dark:bg-amber-950/30 dark:text-amber-100">
           <summary className="cursor-pointer font-medium">Demo mode: some Google integrations are using labelled fallbacks</summary>
-          <ul className="mt-2 list-disc pl-5">
+          <p className="mt-2">
+            <span className="font-medium">Live:</span> {liveIntegrations.map((i) => i.label).join(" · ")}
+          </p>
+          <p className="mt-1 font-medium">On fallback:</p>
+          <ul className="list-disc pl-5">
             {demoIntegrations.map((i) => (
               <li key={i.key}>
                 <span className="font-medium">{i.label}</span>: {i.detail} <span className="text-xs">(enable with {i.env})</span>

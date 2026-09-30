@@ -91,7 +91,8 @@ export function VoiceAssistant({ fieldId, useSample, cloudSpeech }: { fieldId: s
       mediaRef.current?.stop();
       return;
     }
-    if (cloudSpeech && typeof MediaRecorder !== "undefined") {
+    // Cloud STT takes WEBM/OGG Opus; browsers that cannot record it (e.g. Safari) use the browser recogniser.
+    if (cloudSpeech && typeof MediaRecorder !== "undefined" && MediaRecorder.isTypeSupported("audio/webm;codecs=opus")) {
       startCloud().catch((e: Error) => setError(e.message));
     } else {
       startBrowser();

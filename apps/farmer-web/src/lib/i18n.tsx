@@ -77,6 +77,8 @@ const STRINGS = {
   potential_condition: { en: "Potential condition", hi: "संभावित समस्या", te: "సంభావ్య సమస్య" },
   visible_symptoms: { en: "Visible symptoms", hi: "दिखने वाले लक्षण", te: "కనిపించే లక్షణాలు" },
   severity: { en: "Severity", hi: "गंभीरता", te: "తీవ్రత" },
+  nearest_help: { en: "Nearest agriculture support", hi: "निकटतम कृषि सहायता", te: "సమీప వ్యవసాయ సహాయం" },
+  find_village: { en: "Find village / town", hi: "गाँव / कस्बा खोजें", te: "గ్రామం / పట్టణం వెతకండి" },
   next_steps: { en: "Recommended next steps", hi: "अगले कदम", te: "తదుపరి చర్యలు" },
   ask_placeholder: { en: "Type or speak your question...", hi: "अपना सवाल लिखें या बोलें...", te: "మీ ప్రశ్నను టైప్ చేయండి లేదా చెప్పండి..." },
   speak: { en: "Speak", hi: "बोलें", te: "మాట్లాడండి" },

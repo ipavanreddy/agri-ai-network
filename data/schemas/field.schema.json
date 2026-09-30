@@ -141,6 +141,19 @@
       "default": null,
       "title": "Village"
     },
+    "place_label": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Human-readable address (Google Maps reverse geocoding)",
+      "title": "Place Label"
+    },
     "geometry": {
       "additionalProperties": true,
       "description": "GeoJSON Polygon, [lon, lat] order",
